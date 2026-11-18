@@ -33,11 +33,11 @@ const hasAside = Astro.slots.has('aside');
 </section>
 
 <style>
-  .inner {
+  .hero :global(.inner) {
     padding-top: 88px;
     padding-bottom: 88px;
   }
-  .home .inner {
+  .home :global(.inner) {
     padding-top: var(--space-28);
     padding-bottom: var(--space-18);
   }
@@ -92,11 +92,11 @@ const hasAside = Astro.slots.has('aside');
   }
 
   @media (max-width: 760px) {
-    .inner {
+    .hero :global(.inner) {
       padding-top: var(--space-18);
       padding-bottom: var(--space-18);
     }
-    .home .inner {
+    .home :global(.inner) {
       padding-top: var(--space-24);
     }
     h1,
