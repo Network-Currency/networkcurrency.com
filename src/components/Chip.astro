@@ -1,0 +1,36 @@
+---
+interface Props {
+  variant?: 'neutral' | 'accent' | 'muted';
+  size?: 'sm' | 'md';
+}
+const { variant = 'neutral', size = 'md' } = Astro.props;
+---
+
+<span class:list={['chip', variant, size]}><slot /></span>
+
+<style>
+  .chip {
+    display: inline-block;
+    border-radius: var(--radius-pill);
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .md {
+    padding: 5px 12px;
+  }
+  .sm {
+    padding: 4px 10px;
+  }
+  .neutral {
+    background: var(--fill-secondary);
+    color: var(--ink);
+  }
+  .accent {
+    background: var(--accent-soft);
+    color: var(--accent-ink);
+  }
+  .muted {
+    background: var(--fill-secondary);
+    color: var(--ink-muted);
+  }
+</style>

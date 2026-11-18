@@ -1,0 +1,77 @@
+---
+interface Props {
+  href: string;
+  variant?: 'primary' | 'secondary' | 'on-navy' | 'accent';
+  size?: 'lg' | 'md' | 'sm';
+  external?: boolean;
+}
+const { href, variant = 'primary', size = 'lg', external = false } = Astro.props;
+---
+
+<a
+  href={href}
+  class:list={['button', variant, size, { navy: variant === 'on-navy' }]}
+  target={external ? '_blank' : undefined}
+  rel={external ? 'noopener' : undefined}><slot /></a
+>
+
+<style>
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-lg);
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+  }
+  .lg {
+    height: 52px;
+    padding: 0 26px;
+  }
+  .md {
+    height: 48px;
+    padding: 0 var(--space-5);
+    font-size: 15px;
+  }
+  .sm {
+    padding: 10px 18px;
+    font-size: 15px;
+    border-radius: var(--radius-pill);
+  }
+  .primary {
+    background: var(--action);
+    color: var(--on-action);
+  }
+  .primary:hover {
+    color: var(--on-action);
+    filter: brightness(1.1);
+  }
+  .accent {
+    background: var(--accent);
+    color: var(--on-accent);
+  }
+  .accent:hover {
+    color: var(--on-accent);
+    filter: brightness(1.1);
+  }
+  .secondary {
+    background: var(--fill-secondary);
+    color: var(--ink);
+  }
+  .secondary:hover {
+    color: var(--ink);
+    filter: brightness(0.97);
+  }
+  .on-navy {
+    background: var(--surface);
+    border-color: var(--border-field);
+    color: var(--ink);
+  }
+  .on-navy:hover {
+    color: var(--ink);
+    filter: brightness(1.15);
+  }
+</style>

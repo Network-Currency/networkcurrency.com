@@ -1,0 +1,144 @@
+---
+import Chip from './Chip.astro';
+import Button from './Button.astro';
+import type { App } from '../lib/content';
+
+interface Props {
+  item: App;
+  /** Status label shown for this app, from site.yaml. */
+  statusLabel: string;
+  variant?: 'row' | 'mini';
+}
+const { item, statusLabel, variant = 'row' } = Astro.props;
+const a = item.data;
+const statusVariant = a.status === 'live' ? 'accent' : 'muted';
+---
+
+{
+  variant === 'mini' ? (
+    <span class="mini">
+      <span class:list={['tile', 'small', `tile-${a.tile}`]} aria-hidden="true">{a.initial}</span>
+      <span class="mini-name">{a.name}</span>
+      <Chip variant={statusVariant} size="sm">{statusLabel}</Chip>
+    </span>
+  ) : (
+    <article class="row">
+      <div class:list={['tile', `tile-${a.tile}`]} aria-hidden="true">{a.initial}</div>
+      <div class="body">
+        <div class="title">
+          <h2>{a.name}</h2>
+          <Chip variant={statusVariant}>{statusLabel}</Chip>
+        </div>
+        <p class="tagline">{a.tagline}</p>
+        <p class="description">{a.description}</p>
+      </div>
+      {
+        a.links.length > 0 && (
+          <div class="links">
+            {a.links.map((l) => (
+              <Button href={l.href} variant={l.primary ? 'primary' : 'secondary'} size="md">
+                {l.label}
+              </Button>
+            ))}
+          </div>
+        )
+      }
+    </article>
+  )
+}
+
+<style>
+  .tile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 72px;
+    width: 72px;
+    height: 72px;
+    border-radius: var(--radius-card);
+    color: var(--white);
+    font-size: 30px;
+    font-weight: 700;
+  }
+  .tile.small {
+    flex-basis: 36px;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+  }
+  .tile-accent {
+    background: var(--action);
+  }
+  .tile-navy {
+    background: var(--navy);
+  }
+
+  .mini {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+  .mini-name {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-6) 36px;
+    padding: 36px var(--space-10);
+    border-bottom: 1px solid var(--border);
+  }
+  .row:last-child {
+    border-bottom: 0;
+  }
+  .body {
+    flex: 999 1 420px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .title {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3);
+  }
+  h2 {
+    font-size: 26px;
+    line-height: 32px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .tagline {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--accent-ink);
+  }
+  .description {
+    max-width: 680px;
+    font-size: 16px;
+    line-height: 25px;
+    color: var(--ink-muted);
+  }
+  .links {
+    flex: 1 1 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  @media (max-width: 760px) {
+    .row {
+      padding: var(--space-8) var(--space-6);
+    }
+    .links {
+      justify-content: flex-start;
+    }
+  }
+</style>

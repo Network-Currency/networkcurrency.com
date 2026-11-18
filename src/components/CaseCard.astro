@@ -1,0 +1,146 @@
+---
+import Chip from './Chip.astro';
+import type { Case } from '../lib/content';
+
+interface Props {
+  item: Case;
+  variant?: 'full' | 'compact';
+  /** Section labels, from the consulting page content. Required for the full variant. */
+  labels?: { situation: string; did: string; result: string };
+  /** Shown as a chip on the compact variant. */
+  tag?: string;
+}
+const { item, variant = 'full', labels, tag } = Astro.props;
+const c = item.data;
+if (variant === 'full' && !labels) {
+  throw new Error('CaseCard full variant needs labels from src/content/pages/consulting.yaml');
+}
+---
+
+{
+  variant === 'compact' ? (
+    <article class="compact">
+      {c.metric && <div class="metric">{c.metric}</div>}
+      {c.metricLabel && <div class="metric-label">{c.metricLabel}</div>}
+      <h3>{c.title}</h3>
+      <p class="client">{c.client}</p>
+      {tag && (
+        <div class="tags">
+          <Chip variant="accent" size="sm">{tag}</Chip>
+        </div>
+      )}
+    </article>
+  ) : (
+    <article class="full">
+      <h3>{c.title}</h3>
+      <p class="client">{c.client}</p>
+      <dl>
+        <div>
+          <dt>{labels?.situation}</dt>
+          <dd>{c.situation}</dd>
+        </div>
+        <div>
+          <dt>{labels?.did}</dt>
+          <dd>{c.did}</dd>
+        </div>
+      </dl>
+      <div class="result">
+        <div class="result-label">{labels?.result}</div>
+        <div class="result-text">{c.result}</div>
+      </div>
+    </article>
+  )
+}
+
+<style>
+  article {
+    display: flex;
+    flex-direction: column;
+  }
+  .compact {
+    gap: 14px;
+    padding: var(--space-8);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+  }
+  .metric {
+    font-size: 44px;
+    line-height: 48px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--accent);
+  }
+  .metric-label {
+    font-size: 14px;
+    color: var(--ink-muted);
+  }
+  .compact h3 {
+    margin-top: 6px;
+    font-size: 19px;
+    line-height: 25px;
+    font-weight: 600;
+  }
+  .compact .client {
+    font-size: 15px;
+    line-height: 23px;
+    color: var(--ink-muted);
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: auto;
+    padding-top: var(--space-2);
+  }
+
+  .full {
+    gap: var(--space-3);
+    padding: 26px;
+    background: var(--bg);
+    border-radius: var(--radius-lg);
+  }
+  .full h3 {
+    font-size: 19px;
+    line-height: 25px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .full .client {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink-muted);
+  }
+  dl {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 15px;
+    line-height: 23px;
+  }
+  dt {
+    font-weight: 600;
+  }
+  dd {
+    margin-top: 2px;
+    color: var(--ink-muted);
+  }
+  .result {
+    margin-top: auto;
+    padding: 14px var(--space-4);
+    background: var(--surface);
+    border-radius: var(--radius-md);
+  }
+  .result-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent-ink);
+  }
+  .result-text {
+    margin-top: var(--space-1);
+    font-size: 15px;
+    line-height: 23px;
+    font-weight: 600;
+  }
+</style>
