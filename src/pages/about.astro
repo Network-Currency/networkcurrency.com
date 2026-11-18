@@ -1,0 +1,207 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Container from '../components/Container.astro';
+import PageHero from '../components/PageHero.astro';
+import Button from '../components/Button.astro';
+import SectionHead from '../components/SectionHead.astro';
+import { getAbout, getSite } from '../lib/content';
+
+const page = await getAbout();
+const site = await getSite();
+---
+
+<BaseLayout meta={page.meta}>
+  <PageHero eyebrow={page.eyebrow} headline={page.headline} intro={page.intro} size="person">
+    <div class="ctas">
+      <Button href={site.linkedin} variant="primary">{page.linkedinLabel}</Button>
+      <Button href={`mailto:${site.email}`} variant="on-navy">{page.emailLabel}</Button>
+    </div>
+    {
+      page.headshot && (
+        <div slot="aside" class="headshot">
+          <Image src={page.headshot} alt={page.headshotAlt ?? ''} width={840} widths={[420, 840]} sizes="420px" />
+        </div>
+      )
+    }
+  </PageHero>
+
+  <Container as="section" class="pt-lg">
+    <SectionHead eyebrow={page.path.eyebrow} headline={page.path.headline} />
+    <ol class="path">
+      {
+        page.path.items.map((p) => (
+          <li>
+            <div class="who">
+              <span class="org">{p.org}</span>
+              <span class="when">{p.when}</span>
+            </div>
+            <p>{p.body}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </Container>
+
+  <Container as="section" class="pt-xl">
+    <div class="why">
+      <div>
+        <p class="eyebrow">{page.whyBuild.eyebrow}</p>
+        <h2>{page.whyBuild.headline}</h2>
+      </div>
+      <p class="why-body">{page.whyBuild.body}</p>
+    </div>
+  </Container>
+
+  <Container as="section" class="pt-xl pb-xl">
+    <SectionHead eyebrow={page.rules.eyebrow} headline={page.rules.headline} />
+    <div class="rules">
+      {
+        page.rules.items.map((r) => (
+          <div class="rule">
+            <h3>{r.title}</h3>
+            <p>{r.body}</p>
+          </div>
+        ))
+      }
+    </div>
+    <p class="education">{page.education}</p>
+  </Container>
+</BaseLayout>
+
+<style>
+  .ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-top: 36px;
+  }
+  .headshot {
+    justify-self: end;
+    width: 100%;
+    max-width: 420px;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border-radius: var(--radius-card);
+    background: var(--surface);
+  }
+  .headshot :global(img) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .path {
+    display: flex;
+    flex-direction: column;
+    margin-top: var(--space-10);
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+  }
+  .path li {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+    gap: var(--space-2) var(--space-10);
+    padding: 30px 36px;
+    border-bottom: 1px solid var(--border);
+  }
+  .path li:last-child {
+    border-bottom: 0;
+  }
+  .who {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+  .org {
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 700;
+  }
+  .when {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink-muted);
+  }
+  .path p {
+    font-size: 16px;
+    line-height: 26px;
+    color: var(--ink-muted);
+  }
+
+  .why {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+    gap: var(--space-8) var(--space-18);
+    padding: var(--space-14);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+  }
+  .eyebrow {
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent-ink);
+  }
+  .why h2 {
+    font-size: 36px;
+    line-height: 42px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+  .why-body {
+    font-size: 17px;
+    line-height: 28px;
+  }
+
+  .rules {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
+    gap: var(--space-5);
+    margin-top: var(--space-10);
+  }
+  .rule {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 30px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+  }
+  .rule h3 {
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 700;
+  }
+  .rule p {
+    font-size: 16px;
+    line-height: 25px;
+    color: var(--ink-muted);
+  }
+  .education {
+    margin-top: var(--space-10);
+    font-size: 15px;
+    color: var(--ink-muted);
+  }
+
+  @media (max-width: 760px) {
+    .path li {
+      padding: var(--space-6);
+    }
+    .why {
+      padding: var(--space-8) var(--space-6);
+    }
+    .why h2 {
+      font-size: 28px;
+      line-height: 34px;
+    }
+  }
+</style>

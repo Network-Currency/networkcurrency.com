@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Container from '../../components/Container.astro';
+import PageHero from '../../components/PageHero.astro';
+import WritingCard from '../../components/WritingCard.astro';
+import { getAiGovernance, getWriting } from '../../lib/content';
+
+const page = await getAiGovernance();
+const writing = await getWriting();
+const highlighted = writing.find((w) => w.data.highlight);
+---
+
+<BaseLayout meta={page.meta}>
+  <PageHero eyebrow={page.eyebrow} headline={page.headline}>
+    <div slot="aside" class="intro">
+      {page.intro.map((p) => <p>{p}</p>)}
+    </div>
+  </PageHero>
+
+  {
+    highlighted && (
+      <Container as="section" class="pt-lg">
+        <p class="eyebrow">{page.featured.eyebrow}</p>
+        <WritingCard item={highlighted} variant="featured" readLabel={page.readLabel} />
+      </Container>
+    )
+  }
+
+  {
+    writing.length > 0 && (
+      <Container as="section" class="pt-lg pb-lg">
+        <h2 class="library-title">{page.library.headline}</h2>
+        <div class="grid">
+          {writing.map((w) => (
+            <WritingCard item={w} variant="card" readLabel={page.readLabel} />
+          ))}
+        </div>
+        {page.library.note && <p class="note">{page.library.note}</p>}
+      </Container>
+    )
+  }
+</BaseLayout>
+
+<style>
+  .intro {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    font-size: 17px;
+    line-height: 28px;
+  }
+  .eyebrow {
+    margin-bottom: var(--space-5);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent-ink);
+  }
+  .library-title {
+    margin-bottom: 28px;
+    font-size: 36px;
+    line-height: 42px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
+    gap: var(--space-5);
+  }
+  .note {
+    margin-top: var(--space-5);
+    font-size: 14px;
+    color: var(--ink-muted);
+  }
+</style>

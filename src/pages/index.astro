@@ -1,0 +1,255 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Container from '../components/Container.astro';
+import PageHero from '../components/PageHero.astro';
+import Button from '../components/Button.astro';
+import Chip from '../components/Chip.astro';
+import SectionHead from '../components/SectionHead.astro';
+import CaseCard from '../components/CaseCard.astro';
+import WritingCard from '../components/WritingCard.astro';
+import AppRow from '../components/AppRow.astro';
+import ContactBand from '../components/ContactBand.astro';
+import { getHome, getSite, getServices, getCases, getVisibleApps, getWriting, statusLabelFor } from '../lib/content';
+
+const page = await getHome();
+const site = await getSite();
+const services = await getServices();
+const apps = await getVisibleApps();
+const cases = (await getCases()).filter((c) => c.data.featured);
+const writing = (await getWriting()).filter((w) => w.data.featured);
+const shortNameByService = new Map(services.map((s) => [s.data.name, s.data.shortName]));
+---
+
+<BaseLayout meta={page.meta} home>
+  <PageHero eyebrow={page.eyebrow} headline={page.headline} intro={page.intro} size="home">
+    <div class="ctas">
+      <Button href={page.primaryCta.href} variant="primary">{page.primaryCta.label}</Button>
+      <Button href={page.secondaryCta.href} variant="on-navy">{page.secondaryCta.label}</Button>
+    </div>
+    <ul slot="after" class="stats">
+      {
+        page.stats.map((s) => (
+          <li class="stat">
+            <span class="stat-value">{s.value}</span>
+            <span class="stat-label">{s.label}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </PageHero>
+
+  <Container as="section" class="pt-lg">
+    <div class="doorways">
+      <a class="doorway" href="/consulting/">
+        <span class="label">{page.doorways.consulting.label}</span>
+        <span class="headline">{page.doorways.consulting.headline}</span>
+        <span class="chips">
+          {services.map((s) => <Chip>{s.data.shortName}</Chip>)}
+        </span>
+        <span class="more">{page.doorways.consulting.linkLabel}</span>
+      </a>
+      <a class="doorway" href="/apps/">
+        <span class="label">{page.doorways.apps.label}</span>
+        <span class="headline">{page.doorways.apps.headline}</span>
+        <span class="apps">
+          {apps.map((a) => <AppRow item={a} variant="mini" statusLabel={statusLabelFor(site, a)} />)}
+        </span>
+        <span class="more">{page.doorways.apps.linkLabel}</span>
+      </a>
+    </div>
+  </Container>
+
+  {
+    cases.length > 0 && (
+      <Container as="section" class="pt-xl">
+        <div class="section-top">
+          <SectionHead eyebrow={page.work.eyebrow} headline={page.work.headline} />
+          <a class="all" href="/consulting/">
+            {page.work.linkLabel}
+          </a>
+        </div>
+        <div class="case-grid">
+          {cases.map((c) => (
+            <CaseCard item={c} variant="compact" tag={shortNameByService.get(c.data.service)} />
+          ))}
+        </div>
+      </Container>
+    )
+  }
+
+  {
+    writing.length > 0 && (
+      <Container as="section" class="pt-xl">
+        <div class="writing">
+          <div>
+            <SectionHead eyebrow={page.writing.eyebrow} headline={page.writing.headline} />
+            <p class="writing-intro">{page.writing.intro}</p>
+            <a class="all more-link" href="/ai-governance/">
+              {page.writing.linkLabel}
+            </a>
+          </div>
+          <div class="writing-list">
+            {writing.map((w) => (
+              <WritingCard item={w} variant="row" />
+            ))}
+          </div>
+        </div>
+      </Container>
+    )
+  }
+
+  <ContactBand
+    id="contact"
+    headline={page.contactBand.headline}
+    body={page.contactBand.body}
+    linkedinLabel={page.contactBand.linkedinLabel}
+  />
+</BaseLayout>
+
+<style>
+  .ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 44px;
+  }
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin: var(--space-28) 0 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--border);
+  }
+  .stat {
+    display: flex;
+    flex-direction: column;
+    padding: 28px var(--space-6) 0 0;
+  }
+  .stat-value {
+    font-size: 40px;
+    line-height: 44px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--white);
+  }
+  .stat-label {
+    margin-top: var(--space-2);
+    font-size: 15px;
+    line-height: 21px;
+    color: var(--ink-muted);
+  }
+
+  .doorways {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
+    gap: var(--space-6);
+  }
+  .doorway {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: var(--space-10);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .doorway:hover {
+    color: var(--ink);
+    border-color: var(--accent);
+  }
+  .doorway .label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent-ink);
+  }
+  .doorway .headline {
+    font-size: 30px;
+    line-height: 36px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-1);
+  }
+  .apps {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: var(--space-1);
+  }
+  .more {
+    margin-top: auto;
+    padding-top: var(--space-3);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--accent-ink);
+  }
+
+  .section-top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--space-4);
+    margin-bottom: var(--space-8);
+  }
+  .all {
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .case-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+    gap: var(--space-6);
+  }
+
+  .writing {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+    gap: var(--space-12);
+    align-items: start;
+  }
+  .writing-intro {
+    margin-top: 18px;
+    font-size: 17px;
+    line-height: 27px;
+    color: var(--ink-muted);
+  }
+  .more-link {
+    display: inline-block;
+    margin-top: 22px;
+  }
+  .writing-list {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+  }
+  .writing-list > :global(a:last-child) {
+    border-bottom: 0;
+  }
+
+  @media (max-width: 760px) {
+    .stats {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: var(--space-18);
+    }
+    .doorway {
+      padding: var(--space-8) var(--space-6);
+    }
+    .doorway .headline {
+      font-size: 26px;
+      line-height: 32px;
+    }
+  }
+</style>

@@ -1,0 +1,143 @@
+---
+import { render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Container from '../../components/Container.astro';
+import Chip from '../../components/Chip.astro';
+import Button from '../../components/Button.astro';
+import { getAiGovernance, getWriting, hasBody, writingKind, formatDate } from '../../lib/content';
+
+export async function getStaticPaths() {
+  const items = (await getWriting()).filter(hasBody);
+  return items.map((item) => ({ params: { slug: item.id }, props: { item } }));
+}
+
+const { item } = Astro.props;
+const page = await getAiGovernance();
+const { Content } = await render(item);
+const w = item.data;
+---
+
+<BaseLayout meta={{ title: w.title, description: w.summary }} ogType="article">
+  <section class="head navy">
+    <Container class="head-inner">
+      <a class="back" href="/ai-governance/">{page.backLabel}</a>
+      <div class="meta">
+        <Chip variant="accent">{writingKind(item)}</Chip>
+        {w.date && <span class="date">{formatDate(w.date)}</span>}
+      </div>
+      <h1>{w.title}</h1>
+      <p class="summary">{w.summary}</p>
+    </Container>
+  </section>
+
+  <Container class="pt-lg pb-lg">
+    <article class="prose">
+      <Content />
+    </article>
+    {
+      w.linkedin && (
+        <div class="discuss">
+          <Button href={w.linkedin} variant="primary" external>
+            {page.discussLabel}
+          </Button>
+        </div>
+      )
+    }
+    <p class="back-row">
+      <a href="/ai-governance/">{page.backLabel}</a>
+    </p>
+  </Container>
+</BaseLayout>
+
+<style>
+  .head :global(.head-inner) {
+    padding-top: var(--space-18);
+    padding-bottom: var(--space-18);
+  }
+  .back {
+    display: inline-block;
+    margin-bottom: var(--space-8);
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-5);
+  }
+  .date {
+    font-size: 14px;
+    color: var(--ink-muted);
+  }
+  h1 {
+    max-width: 860px;
+    font-size: 48px;
+    line-height: 54px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+  .summary {
+    max-width: 700px;
+    margin-top: var(--space-5);
+    font-size: 19px;
+    line-height: 30px;
+    color: var(--ink-muted);
+  }
+  .prose {
+    max-width: var(--reading-width);
+    font-size: 18px;
+    line-height: 30px;
+  }
+  .prose :global(h2) {
+    margin: var(--space-12) 0 var(--space-4);
+    font-size: 30px;
+    line-height: 36px;
+    letter-spacing: -0.02em;
+  }
+  .prose :global(h3) {
+    margin: var(--space-10) 0 var(--space-3);
+    font-size: 22px;
+    line-height: 28px;
+  }
+  .prose :global(p),
+  .prose :global(ul),
+  .prose :global(ol) {
+    margin: 0 0 var(--space-5);
+  }
+  .prose :global(ul),
+  .prose :global(ol) {
+    padding-left: var(--space-6);
+  }
+  .prose :global(blockquote) {
+    margin: var(--space-6) 0;
+    padding-left: var(--space-5);
+    border-left: 3px solid var(--border-field);
+    color: var(--ink-muted);
+  }
+  .discuss {
+    max-width: var(--reading-width);
+    margin-top: var(--space-10);
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--border);
+  }
+  .back-row {
+    max-width: var(--reading-width);
+    margin-top: var(--space-8);
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  @media (max-width: 760px) {
+    h1 {
+      font-size: 34px;
+      line-height: 40px;
+    }
+    .prose {
+      font-size: 17px;
+      line-height: 28px;
+    }
+  }
+</style>

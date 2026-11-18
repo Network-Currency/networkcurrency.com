@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Container from '../components/Container.astro';
+import PageHero from '../components/PageHero.astro';
+import { getLegal } from '../lib/content';
+
+const page = await getLegal();
+---
+
+<BaseLayout meta={page.meta}>
+  <PageHero headline={page.headline} />
+
+  <Container class="pt-lg pb-xl">
+    <div class="column">
+      {
+        page.sections.map((section) => (
+          <section>
+            <h2>{section.heading}</h2>
+            {section.paragraphs.map((p) => (
+              <p>{p}</p>
+            ))}
+            {section.links.length > 0 && (
+              <ul>
+                {section.links.map((l) => (
+                  <li>
+                    <a href={l.href}>{l.label}</a>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </section>
+        ))
+      }
+    </div>
+  </Container>
+</BaseLayout>
+
+<style>
+  .column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-10);
+    max-width: var(--reading-width);
+  }
+  h2 {
+    margin-bottom: var(--space-3);
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+  }
+  p {
+    font-size: 17px;
+    line-height: 28px;
+  }
+  p + p {
+    margin-top: var(--space-3);
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin: var(--space-3) 0 0;
+    padding: 0;
+    list-style: none;
+    font-size: 17px;
+  }
+</style>

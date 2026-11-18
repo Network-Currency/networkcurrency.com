@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Container from '../components/Container.astro';
+import PageHero from '../components/PageHero.astro';
+import AppRow from '../components/AppRow.astro';
+import { getAppsPage, getSite, getVisibleApps, statusLabelFor } from '../lib/content';
+
+const page = await getAppsPage();
+const site = await getSite();
+const apps = await getVisibleApps();
+---
+
+<BaseLayout meta={page.meta}>
+  <PageHero eyebrow={page.eyebrow} headline={page.headline} intro={page.intro} />
+
+  {
+    apps.length > 0 && (
+      <Container as="section" class="pt-lg pb-xl">
+        <div class="list">
+          {apps.map((a) => (
+            <AppRow item={a} statusLabel={statusLabelFor(site, a)} />
+          ))}
+        </div>
+      </Container>
+    )
+  }
+</BaseLayout>
+
+<style>
+  .list {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+  }
+</style>
