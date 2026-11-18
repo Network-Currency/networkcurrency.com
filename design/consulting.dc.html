@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Network Currency · Consulting</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F5F7FB}
+a{color:#1D4ED8}a:hover{color:#2563EB}
+.wrap{max-width:1200px;margin:0 auto;padding:0 40px;box-sizing:border-box}
+@media (max-width:760px){.wrap{padding:0 20px}.page-h1{font-size:40px !important;line-height:44px !important}.navlinks{display:none !important}}
+</style>
+</helmet>
+<div style="font-family: Inter, system-ui, sans-serif; color: #0B1B3F; background: #F5F7FB; -webkit-font-smoothing: antialiased">
+
+<header style="background: #0E1A3B; border-bottom: 1px solid #22336A">
+<div class="wrap" style="display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 76px">
+<a href="Main.dc.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #EEF2FB">
+<svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true"><rect x="1" y="1" width="28" height="28" rx="8" stroke="#6E9BFF" stroke-width="2"></rect><circle cx="10" cy="10" r="2.5" fill="#6E9BFF"></circle><circle cx="20" cy="15" r="2.5" fill="#6E9BFF"></circle><circle cx="10" cy="20" r="2.5" fill="#6E9BFF"></circle><path d="M10 10L20 15L10 20" stroke="#6E9BFF" stroke-width="1.6"></path></svg>
+<span style="font-size: 17px; font-weight: 700; letter-spacing: -0.01em">Network Currency</span>
+</a>
+<nav class="navlinks" aria-label="Main" style="display: flex; align-items: center; gap: 32px; font-size: 15px; font-weight: 500">
+<a href="Consulting.dc.html" aria-current="page" style="color: #FFFFFF; text-decoration: none">Consulting</a>
+<a href="AIGovernance.dc.html" style="color: #A9B4D0; text-decoration: none">AI Governance</a>
+<a href="Apps.dc.html" style="color: #A9B4D0; text-decoration: none">Apps</a>
+<a href="About.dc.html" style="color: #A9B4D0; text-decoration: none">About</a>
+<a href="Main.dc.html#contact" style="color: #0B1430; background: #6E9BFF; text-decoration: none; padding: 10px 18px; border-radius: 999px; font-weight: 600">Contact</a>
+</nav>
+</div>
+</header>
+
+<section style="background: #0E1A3B; color: #EEF2FB">
+<div class="wrap" style="padding-top: 88px; padding-bottom: 88px">
+<p style="margin: 0 0 20px; font-size: 15px; font-weight: 600; color: #A9C4FF">Consulting</p>
+<h1 class="page-h1" style="margin: 0; max-width: 860px; font-size: 56px; line-height: 62px; font-weight: 700; letter-spacing: -0.03em">Adopt AI responsibly. Deliver complex programs well.</h1>
+<p style="margin: 26px 0 0; max-width: 700px; font-size: 19px; line-height: 30px; color: #A9B4D0">Advisory and leadership drawn from 18+ years of enterprise delivery at Salesforce, MuleSoft, Silverline, and Altimetrik, and from building production software with the same AI tools my clients are evaluating.</p>
+</div>
+</section>
+
+<section class="wrap" style="padding-top: 96px">
+<p style="margin: 0 0 10px; font-size: 14px; font-weight: 600; color: #1D4ED8">Services</p>
+<h2 style="margin: 0 0 28px; font-size: 40px; line-height: 46px; font-weight: 700; letter-spacing: -0.025em">Five ways I help.</h2>
+<nav aria-label="Services" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 40px">
+<sc-for list="{{services}}" as="s" hint-placeholder-count="5">
+<a href="#{{s.id}}" style="display: flex; flex-direction: column; gap: 6px; padding: 18px 20px; background: #FFFFFF; border: 1px solid #E8ECF4; border-radius: 14px; text-decoration: none; color: #0B1B3F">
+<span style="font-size: 13px; font-weight: 700; color: #2563EB">{{s.num}}</span>
+<span style="font-size: 15px; line-height: 20px; font-weight: 600">{{s.name}}</span>
+</a>
+</sc-for>
+</nav>
+<div style="display: flex; flex-direction: column; gap: 20px">
+<sc-for list="{{services}}" as="s" hint-placeholder-count="5">
+<article id="{{s.id}}" style="display: flex; flex-direction: column; gap: 36px; padding: 40px; background: #FFFFFF; border: 1px solid #E8ECF4; border-radius: 20px; box-shadow: 0 1px 2px rgba(11,27,63,0.04), 0 4px 14px rgba(11,27,63,0.05); scroll-margin-top: 24px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px 56px">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<span style="font-size: 15px; font-weight: 700; color: #2563EB">{{s.num}}</span>
+<h3 style="margin: 0; font-size: 28px; line-height: 34px; font-weight: 700; letter-spacing: -0.02em">{{s.name}}</h3>
+<sc-if value="{{s.hasLinks}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 0; margin-top: 10px; border-top: 1px solid #E8ECF4">
+<sc-for list="{{s.links}}" as="l" hint-placeholder-count="3">
+<a href="AIGovernance.dc.html" style="display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid #E8ECF4; font-size: 15px; font-weight: 600; text-decoration: none; color: #0B1B3F"><span>{{l}}</span><span style="color: #1D4ED8">→</span></a>
+</sc-for>
+<a href="AIGovernance.dc.html" style="padding-top: 14px; font-size: 15px; font-weight: 600; text-decoration: none">{{s.linkAll}}</a>
+</div>
+</sc-if>
+</div>
+<div style="display: flex; flex-direction: column; gap: 22px">
+<p style="margin: 0; font-size: 17px; line-height: 28px; color: #0B1B3F">{{s.body}}</p>
+<div>
+<p style="margin: 0 0 10px; font-size: 14px; font-weight: 600; color: #55627E">Typical engagements</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{s.engagements}}" as="e" hint-placeholder-count="4"><span style="padding: 6px 12px; border-radius: 999px; background: #EBEFF6; font-size: 13px; font-weight: 600">{{e}}</span></sc-for>
+</div>
+</div>
+</div>
+</div>
+<sc-if value="{{s.hasCases}}" hint-placeholder-val="{{ true }}">
+<div style="border-top: 1px solid #E8ECF4; padding-top: 28px">
+<p style="margin: 0 0 16px; font-size: 14px; font-weight: 600; color: #55627E">Selected work</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px">
+<sc-for list="{{s.cases}}" as="c" hint-placeholder-count="2">
+<div style="display: flex; flex-direction: column; gap: 12px; padding: 26px; background: #F5F7FB; border-radius: 16px">
+<h3 style="margin: 0; font-size: 19px; line-height: 25px; font-weight: 700; letter-spacing: -0.01em">{{c.title}}</h3>
+<p style="margin: 0; font-size: 14px; font-weight: 600; color: #55627E">{{c.client}}</p>
+<dl style="margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px; line-height: 23px">
+<div><dt style="font-weight: 600">Situation</dt><dd style="margin: 2px 0 0; color: #55627E">{{c.situation}}</dd></div>
+<div><dt style="font-weight: 600">What I did</dt><dd style="margin: 2px 0 0; color: #55627E">{{c.did}}</dd></div>
+</dl>
+<div style="margin-top: auto; padding: 14px 16px; background: #FFFFFF; border-radius: 12px">
+<div style="font-size: 13px; font-weight: 600; color: #1D4ED8">Result</div>
+<div style="margin-top: 4px; font-size: 15px; line-height: 23px; font-weight: 600">{{c.result}}</div>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+</sc-if>
+</article>
+</sc-for>
+</div>
+</section>
+
+<section class="wrap" style="padding-top: 112px">
+<p style="margin: 0 0 10px; font-size: 14px; font-weight: 600; color: #1D4ED8">How we can work together</p>
+<h2 style="margin: 0 0 40px; font-size: 40px; line-height: 46px; font-weight: 700; letter-spacing: -0.025em">Engagement models.</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px">
+<sc-for list="{{models}}" as="m" hint-placeholder-count="3">
+<div style="padding: 32px; background: #FFFFFF; border: 1px solid #E8ECF4; border-radius: 20px">
+<h3 style="margin: 0 0 10px; font-size: 20px; line-height: 26px; font-weight: 700">{{m.name}}</h3>
+<p style="margin: 0; font-size: 16px; line-height: 25px; color: #55627E">{{m.body}}</p>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section class="wrap" style="padding-top: 112px; padding-bottom: 96px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 32px; padding: 56px; background: #0E1A3B; border-radius: 20px; color: #EEF2FB">
+<div style="max-width: 620px">
+<h2 style="margin: 0; font-size: 36px; line-height: 42px; font-weight: 700; letter-spacing: -0.025em">Let's talk about what you're working on.</h2>
+<p style="margin: 16px 0 0; font-size: 17px; line-height: 26px; color: #A9B4D0">A short conversation is usually enough to tell whether I can help.</p>
+</div>
+<a href="mailto:mark@networkcurrency.com" style="display: inline-flex; align-items: center; height: 52px; padding: 0 24px; border-radius: 16px; background: #2563EB; color: #FFFFFF; font-size: 16px; font-weight: 600; text-decoration: none">mark@networkcurrency.com</a>
+</div>
+</section>
+
+<footer style="border-top: 1px solid #E8ECF4; background: #FFFFFF">
+<div class="wrap" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding-top: 28px; padding-bottom: 28px; font-size: 14px; color: #55627E">
+<span>© 2026 Network Currency LLC. All rights reserved.</span>
+<span style="display: flex; flex-wrap: wrap; gap: 24px">
+<a href="#" style="color: #55627E; text-decoration: none">Legal</a>
+<a href="https://obligerapp.com" style="color: #55627E; text-decoration: none">Obliger</a>
+<a href="https://linkedin.com/in/markscottbaker" style="color: #55627E; text-decoration: none">LinkedIn</a>
+</span>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4600}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const services = [
+      { num: '01', name: 'AI Strategy & Governance', hasLinks: true, linkAll: 'View all AI governance writing →',
+        links: ['The AI Governance Playbook', 'AI Scaffolding: The Enterprise Control Plane', 'From Pilot Purgatory to Productive Failure'],
+        body: 'Most organizations don’t have an AI problem. They have a decision-making problem that AI makes urgent. I help leadership teams decide where AI creates real value, put the right controls in place, and build an operating model that lets adoption scale without losing accountability. Governance done well is not a brake. It’s what lets an organization say yes with confidence.',
+        engagements: ['AI readiness assessment', 'Use-case prioritization', 'AI policy and controls', 'Governance operating model', 'Risk and regulatory alignment'] },
+      { num: '02', name: 'GenAI Implementation Advisory', hasLinks: false, links: [], linkAll: '',
+        body: 'The hard part of GenAI is not the demo. It’s the path from pilot to production: success criteria, data and security constraints, human review, cost, and adoption. I’ve led enterprise GenAI implementations in insurance, travel, and legal services, and I build with these tools myself.',
+        engagements: ['Pilot-to-production planning', 'Tooling and vendor evaluation', 'Implementation leadership', 'Human-in-the-loop design', 'AI-enabled delivery'] },
+      { num: '03', name: 'Delivery & Program Leadership', hasLinks: false, links: [], linkAll: '',
+        body: 'I’ve spent most of my career leading complex programs, and a good part of it recovering programs that had gone red. I run programs on fundamentals: agreed success criteria up front, honest governance, early escalation, and executive communication that lands.',
+        engagements: ['Program recovery', 'Executive program oversight', 'PMO and governance design', 'Fractional delivery leadership', 'Vendor and SI accountability'] },
+      { num: '04', name: 'Services Practice Building', hasLinks: false, links: [], linkAll: '',
+        body: 'I’ve built and scaled delivery organizations from the inside: teams, governance frameworks, staffing and capacity models, analytics, and offerings that sell. I work with consulting firms and internal services teams that need to stand up, scale, or raise the quality of a practice.',
+        engagements: ['Practice and offering design', 'Delivery governance frameworks', 'Staffing and margin models', 'Leadership development'] },
+      { num: '05', name: 'Salesforce Platform Implementation & Advisory', hasLinks: false, links: [], linkAll: '',
+        body: 'More than a decade inside Salesforce and MuleSoft professional services, across 50+ projects and programs on the platform. I advise customers and partners on solution approach, program structure, integration, and recovery when an implementation is off track.',
+        engagements: ['Implementation advisory', 'Program health checks', 'Red program recovery', 'Partner oversight', 'Architecture review'] }
+    ];
+    const models = [
+      { name: 'Advisory', body: 'A focused engagement to answer a specific question: an assessment, a strategy, a framework, or a second opinion.' },
+      { name: 'Fractional leadership', body: 'Part-time senior leadership for a program, a practice, or an AI initiative.' },
+      { name: 'Project-based', body: 'Defined scope, defined deliverables, defined end date.' }
+    ];
+    const cases = [
+      { title: 'Built an AI governance practice from zero', client: 'AI-focused digital transformation consultancy', service: 'AI Strategy & Governance', tags: ['AI Strategy & Governance'], situation: 'Clients were adopting GenAI faster than their policies, controls, and operating models could keep up.', did: 'Designed and personally delivered a packaged governance engagement: value realization, use-case management, risk, policy, and operating model.', result: 'Sold and delivered across multiple clients; published two frameworks.' },
+      { title: 'Enterprise GenAI across three industries', client: 'Fortune 100 insurer, global airline, legal services firm', service: 'GenAI Implementation Advisory', tags: ['GenAI Implementation'], situation: 'Each needed to move from GenAI pilots to working, governed solutions.', did: 'Owned success criteria, governance cadences, risk, budget, and executive reporting from pre-sales to deployment.', result: 'Implementations delivered; $1.3M closed and $2M pipeline in six months.' },
+      { title: 'AI platform build at scale', client: 'Enterprise SaaS platform company', service: 'GenAI Implementation Advisory', tags: ['GenAI Implementation', 'Delivery Leadership'], situation: 'Adding AI capabilities to the product, about $12M annualized, across the US and India.', did: 'Program director alongside the client CTO, leading five PMs and daily, weekly, and monthly executive cadences.', result: 'About 100 engineers onboarded in four months; build launched and handed off.' },
+      { title: 'Recovered a $14M multi-cloud program', client: 'Large public real estate company', service: 'Delivery & Program Leadership', tags: ['Delivery Leadership', 'Salesforce'], situation: 'Production cutover failed under peak load after three technical teams had rotated through.', did: 'Took over the workstream, led root-cause analysis, secured warranty funding, and aligned four functions on one plan.', result: 'Integrations stabilized and the account retained.' },
+      { title: '$40M global account stabilization', client: 'Enterprise integration software company', service: 'Delivery & Program Leadership', tags: ['Delivery Leadership'], situation: 'Hundreds of customer accounts at risk across regions.', did: 'Ran spend tracking, executive reporting, and every recovery project from contract to close.', result: '125% retention against a 105% target.' },
+      { title: 'Scaled a delivery organization and its governance', client: 'Enterprise software professional services', service: 'Services Practice Building', tags: ['Practice Building', 'Delivery Leadership'], situation: 'A $25–30M vertical portfolio with inconsistent delivery oversight.', did: 'Grew the team from 5 to 17 and co-created a governance framework that surfaced problems early.', result: '9.7/10 average CSAT, with framework scores tracking to CSAT.' },
+      { title: 'Built delivery operations from scratch', client: '100+ consultant Salesforce partner', service: 'Services Practice Building', tags: ['Practice Building'], situation: 'Rapid growth with no staffing model, analytics, or operating infrastructure.', did: 'Stood up staffing and capacity planning, tooling, invoicing, and the first delivery analytics function.', result: 'Forecasting, utilization, and margin visibility where none existed.' },
+      { title: 'Turned around an international banking rollout', client: 'Major international bank', service: 'Salesforce Platform Implementation & Advisory', tags: ['Salesforce'], situation: 'Two previous delivery teams had failed and cancellation was close.', did: 'Reset the relationship, redefined requirements and design, and presented the recovery plan.', result: 'Cancellation averted; the first rollout wave went live.' }
+    ];
+    const ids = ['ai-governance', 'genai', 'delivery', 'practice', 'salesforce'];
+    const svc = services.map((sv, i) => {
+      const mine = cases.filter((c) => c.service === sv.name);
+      return Object.assign({}, sv, { id: ids[i], cases: mine, hasCases: mine.length > 0 });
+    });
+    return { services: svc, models };
+  }
+}
+</script>
+</body>
+</html>

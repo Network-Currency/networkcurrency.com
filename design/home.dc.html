@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Network Currency · Home</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F5F7FB}
+a{color:#1D4ED8}a:hover{color:#2563EB}
+.wrap{max-width:1200px;margin:0 auto;padding:0 40px;box-sizing:border-box}
+@media (max-width:760px){.wrap{padding:0 20px}.hero-h1{font-size:44px !important;line-height:48px !important}.navlinks{display:none !important}.stats{grid-template-columns:repeat(2,minmax(0,1fr)) !important}}
+</style>
+</helmet>
+<div style="font-family: Inter, system-ui, sans-serif; color: #0B1B3F; background: #F5F7FB; -webkit-font-smoothing: antialiased">
+
+<header style="background: #0E1A3B; border-bottom: 1px solid #22336A">
+<div class="wrap" style="display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 76px">
+<a href="Main.dc.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #EEF2FB">
+<svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true"><rect x="1" y="1" width="28" height="28" rx="8" stroke="#6E9BFF" stroke-width="2"></rect><circle cx="10" cy="10" r="2.5" fill="#6E9BFF"></circle><circle cx="20" cy="15" r="2.5" fill="#6E9BFF"></circle><circle cx="10" cy="20" r="2.5" fill="#6E9BFF"></circle><path d="M10 10L20 15L10 20" stroke="#6E9BFF" stroke-width="1.6"></path></svg>
+<span style="font-size: 17px; font-weight: 700; letter-spacing: -0.01em">Network Currency</span>
+</a>
+<nav class="navlinks" aria-label="Main" style="display: flex; align-items: center; gap: 32px; font-size: 15px; font-weight: 500">
+<a href="Consulting.dc.html" style="color: #A9B4D0; text-decoration: none">Consulting</a>
+<a href="AIGovernance.dc.html" style="color: #A9B4D0; text-decoration: none">AI Governance</a>
+<a href="Apps.dc.html" style="color: #A9B4D0; text-decoration: none">Apps</a>
+<a href="About.dc.html" style="color: #A9B4D0; text-decoration: none">About</a>
+<a href="#contact" style="color: #0B1430; background: #6E9BFF; text-decoration: none; padding: 10px 18px; border-radius: 999px; font-weight: 600">Contact</a>
+</nav>
+</div>
+</header>
+
+<section style="background: #0E1A3B; color: #EEF2FB">
+<div class="wrap" style="padding-top: 112px; padding-bottom: 72px">
+<p style="margin: 0 0 24px; font-size: 15px; font-weight: 600; color: #A9C4FF">Network Currency LLC</p>
+<h1 class="hero-h1" style="margin: 0; max-width: 900px; font-size: 72px; line-height: 76px; font-weight: 700; letter-spacing: -0.035em">Technology advisory and focused software.</h1>
+<p style="margin: 28px 0 0; max-width: 640px; font-size: 20px; line-height: 31px; color: #A9B4D0">AI strategy, governance, and enterprise delivery from someone who has led the programs and built the products.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 44px">
+<a href="Consulting.dc.html" style="display: inline-flex; align-items: center; height: 52px; padding: 0 26px; border-radius: 16px; background: {{accent}}; color: #FFFFFF; font-size: 16px; font-weight: 600; text-decoration: none">Work with me</a>
+<a href="Apps.dc.html" style="display: inline-flex; align-items: center; height: 52px; padding: 0 26px; border-radius: 16px; background: #17264F; border: 1px solid #2B3F78; color: #EEF2FB; font-size: 16px; font-weight: 600; text-decoration: none">See the apps</a>
+</div>
+<div class="stats" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; margin-top: 104px; border-top: 1px solid #22336A">
+<sc-for list="{{stats}}" as="s" hint-placeholder-count="4">
+<div style="padding: 28px 24px 0 0">
+<div style="font-size: 40px; line-height: 44px; font-weight: 700; letter-spacing: -0.03em; color: #FFFFFF">{{s.value}}</div>
+<div style="margin-top: 8px; font-size: 15px; line-height: 21px; color: #A9B4D0">{{s.label}}</div>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section class="wrap" style="padding-top: 96px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px">
+<a href="Consulting.dc.html" style="display: flex; flex-direction: column; gap: 18px; padding: 40px; background: #FFFFFF; border: 1px solid #E8ECF4; border-radius: 20px; box-shadow: 0 1px 2px rgba(11,27,63,0.04), 0 4px 14px rgba(11,27,63,0.05); text-decoration: none; color: #0B1B3F">
+<span style="font-size: 14px; font-weight: 600; color: #1D4ED8">Consulting</span>
+<span style="font-size: 30px; line-height: 36px; font-weight: 700; letter-spacing: -0.02em">Advisory and leadership for AI adoption and complex technology programs.</span>
+<span style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px">
+<sc-for list="{{services}}" as="sv" hint-placeholder-count="5"><span style="padding: 6px 12px; border-radius: 999px; background: #EBEFF6; font-size: 13px; font-weight: 600; color: #0B1B3F">{{sv}}</span></sc-for>
+</span>
+<span style="margin-top: auto; padding-top: 12px; font-size: 15px; font-weight: 600; color: #1D4ED8">Explore consulting →</span>
+</a>
+<a href="Apps.dc.html" style="display: flex; flex-direction: column; gap: 18px; padding: 40px; background: #FFFFFF; border: 1px solid #E8ECF4; border-radius: 20px; box-shadow: 0 1px 2px rgba(11,27,63,0.04), 0 4px 14px rgba(11,27,63,0.05); text-decoration: none; color: #0B1B3F">
+<span style="font-size: 14px; font-weight: 600; color: #1D4ED8">Apps</span>
+<span style="font-size: 30px; line-height: 36px; font-weight: 700; letter-spacing: -0.02em">Small, focused software for real problems bigger products ignore.</span>
+<span style="display: flex; flex-direction: column; gap: 10px; margin-top: 4px">
+<sc-for list="{{apps}}" as="ap" hint-placeholder-count="2">
+<span style="display: flex; align-items: center; gap: 12px">
+<span style="width: 36px; height: 36px; border-radius: 10px; background: {{ap.tile}}; display: inline-flex; align-items: center; justify-content: center; color: #FFFFFF; font-size: 15px; font-weight: 700">{{ap.initial}}</span>
+<span style="font-size: 16px; font-weight: 600">{{ap.name}}</span>
+<span style="font-size: 13px; font-weight: 600; color: {{ap.statusInk}}; background: {{ap.statusFill}}; padding: 4px 10px; border-radius: 999px">{{ap.status}}</span>
+</span>
+</sc-for>
+</span>
+<span style="margin-top: auto; padding-top: 12px; font-size: 15px; font-weight: 600; color: #1D4ED8">See the apps →</span>
+</a>
+</div>
+</section>
+
+<section class="wrap" style="padding-top: 112px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 32px">
+<div>
+<p style="margin: 0 0 10px; font-size: 14px; font-weight: 600; color: #1D4ED8">Selected work</p>
+<h2 style="margin: 0; font-size: 40px; line-height: 46px; font-weight: 700; letter-spacing: -0.025em">Programs led, practices built.</h2>
+</div>
+<a href="Consulting.dc.html" style="font-size: 15px; font-weight: 600; text-decoration: none">All work →</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px">
+<sc-for list="{{cases}}" as="c" hint-placeholder-count="3">
+<article style="display: flex; flex-direction: column; gap: 14px; padding: 32px; background: #FFFFFF; border: 1px solid #E8ECF4; border-radius: 20px; box-shadow: 0 1px 2px rgba(11,27,63,0.04), 0 4px 14px rgba(11,27,63,0.05)">
+<div style="font-size: 44px; line-height: 48px; font-weight: 700; letter-spacing: -0.03em; color: #2563EB">{{c.metric}}</div>
+<div style="font-size: 14px; color: #55627E">{{c.metricLabel}}</div>
+<h3 style="margin: 6px 0 0; font-size: 19px; line-height: 25px; font-weight: 600">{{c.title}}</h3>
+<p style="margin: 0; font-size: 15px; line-height: 23px; color: #55627E">{{c.client}}</p>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 8px">
+<sc-for list="{{c.tags}}" as="t" hint-placeholder-count="1"><span style="padding: 4px 10px; border-radius: 999px; background: #E7EEFD; color: #1D4ED8; font-size: 13px; font-weight: 600">{{t}}</span></sc-for>
+</div>
+</article>
+</sc-for>
+</div>
+</section>
+
+<section class="wrap" style="padding-top: 112px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 48px; align-items: start">
+<div>
+<p style="margin: 0 0 10px; font-size: 14px; font-weight: 600; color: #1D4ED8">Writing on AI governance</p>
+<h2 style="margin: 0; font-size: 40px; line-height: 46px; font-weight: 700; letter-spacing: -0.025em">A framework is the starting point.</h2>
+<p style="margin: 18px 0 0; font-size: 17px; line-height: 27px; color: #55627E">Frameworks, articles, and commentary on governing AI so organizations can adopt it with confidence.</p>
+<a href="AIGovernance.dc.html" style="display: inline-block; margin-top: 22px; font-size: 15px; font-weight: 600; text-decoration: none">All writing →</a>
+</div>
+<div style="display: flex; flex-direction: column; background: #FFFFFF; border: 1px solid #E8ECF4; border-radius: 20px; overflow: hidden">
+<sc-for list="{{writing}}" as="w" hint-placeholder-count="3">
+<a href="AIGovernance.dc.html" style="display: flex; flex-direction: column; gap: 6px; padding: 26px 30px; border-bottom: 1px solid #E8ECF4; text-decoration: none; color: #0B1B3F">
+<span style="font-size: 13px; font-weight: 600; color: #55627E">{{w.type}}</span>
+<span style="font-size: 18px; line-height: 25px; font-weight: 600">{{w.title}}</span>
+</a>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section id="contact" class="wrap" style="padding-top: 112px; padding-bottom: 96px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 32px; padding: 56px; background: #0E1A3B; border-radius: 20px; color: #EEF2FB">
+<div style="max-width: 620px">
+<h2 style="margin: 0; font-size: 36px; line-height: 42px; font-weight: 700; letter-spacing: -0.025em">Have a program that needs a steady hand, or an AI initiative that needs a plan?</h2>
+<p style="margin: 16px 0 0; font-size: 17px; line-height: 26px; color: #A9B4D0">Let's talk. I read everything and reply personally.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<a href="mailto:mark@networkcurrency.com" style="display: inline-flex; align-items: center; height: 52px; padding: 0 24px; border-radius: 16px; background: {{accent}}; color: #FFFFFF; font-size: 16px; font-weight: 600; text-decoration: none">mark@networkcurrency.com</a>
+<a href="https://linkedin.com/in/markscottbaker" style="display: inline-flex; align-items: center; height: 52px; padding: 0 24px; border-radius: 16px; border: 1px solid #2B3F78; color: #EEF2FB; font-size: 16px; font-weight: 600; text-decoration: none">LinkedIn</a>
+</div>
+</div>
+</section>
+
+<footer style="border-top: 1px solid #E8ECF4; background: #FFFFFF">
+<div class="wrap" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding-top: 28px; padding-bottom: 28px; font-size: 14px; color: #55627E">
+<span>© 2026 Network Currency LLC. All rights reserved.</span>
+<span style="display: flex; flex-wrap: wrap; gap: 24px">
+<a href="#" style="color: #55627E; text-decoration: none">Legal</a>
+<a href="https://obligerapp.com" style="color: #55627E; text-decoration: none">Obliger</a>
+<a href="https://linkedin.com/in/markscottbaker" style="color: #55627E; text-decoration: none">LinkedIn</a>
+</span>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#2563EB","options":["#2563EB","#1D4ED8","#0F766E","#B45309"]},"$preview":{"width":1440,"height":3300}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      accent: this.props.accent ?? '#2563EB',
+      stats: [
+        { value: '18+', label: 'years in enterprise delivery' },
+        { value: '$40M', label: 'largest program led' },
+        { value: '150+', label: 'consultants on one program' },
+        { value: '9.7/10', label: 'average CSAT' }
+      ],
+      services: ['AI Strategy & Governance', 'GenAI Implementation', 'Delivery & Program Leadership', 'Practice Building', 'Salesforce'],
+      apps: [
+        { name: 'Obliger', initial: 'O', tile: '#2563EB', status: 'Live', statusInk: '#1D4ED8', statusFill: '#E7EEFD' },
+        { name: 'Ask Baker', initial: 'B', tile: '#0E1A3B', status: 'In development', statusInk: '#55627E', statusFill: '#EBEFF6' }
+      ],
+      cases: [
+        { metric: '125%', metricLabel: 'retention vs. 105% target', title: '$40M global account stabilization program', client: 'Enterprise integration software company', tags: ['Delivery Leadership'] },
+        { metric: '$14M', metricLabel: 'multi-cloud program recovered', title: 'Recovered a red program after a failed cutover', client: 'Large public real estate company', tags: ['Delivery Leadership', 'Salesforce'] },
+        { metric: '0 → 1', metricLabel: 'AI governance practice', title: 'Built an AI governance practice from zero', client: 'AI-focused digital transformation consultancy', tags: ['AI Strategy & Governance'] }
+      ],
+      writing: [
+        { type: 'Framework · Three-part series', title: 'The AI Governance Playbook' },
+        { type: 'Framework', title: 'AI Scaffolding: The Enterprise Control Plane for Secure and Scalable AI Adoption' },
+        { type: 'Press · InformationWeek', title: 'From Pilot Purgatory to Productive Failure: Fixing AI’s Broken Learning Loop' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

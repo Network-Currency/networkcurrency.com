@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Network Currency · Apps</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F5F7FB}
+a{color:#1D4ED8}a:hover{color:#2563EB}
+.wrap{max-width:1200px;margin:0 auto;padding:0 40px;box-sizing:border-box}
+@media (max-width:760px){.wrap{padding:0 20px}.page-h1{font-size:40px !important;line-height:44px !important}.navlinks{display:none !important}}
+</style>
+</helmet>
+<div style="font-family: Inter, system-ui, sans-serif; color: #0B1B3F; background: #F5F7FB; -webkit-font-smoothing: antialiased">
+
+<header style="background: #0E1A3B; border-bottom: 1px solid #22336A">
+<div class="wrap" style="display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 76px">
+<a href="Main.dc.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #EEF2FB">
+<svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true"><rect x="1" y="1" width="28" height="28" rx="8" stroke="#6E9BFF" stroke-width="2"></rect><circle cx="10" cy="10" r="2.5" fill="#6E9BFF"></circle><circle cx="20" cy="15" r="2.5" fill="#6E9BFF"></circle><circle cx="10" cy="20" r="2.5" fill="#6E9BFF"></circle><path d="M10 10L20 15L10 20" stroke="#6E9BFF" stroke-width="1.6"></path></svg>
+<span style="font-size: 17px; font-weight: 700; letter-spacing: -0.01em">Network Currency</span>
+</a>
+<nav class="navlinks" aria-label="Main" style="display: flex; align-items: center; gap: 32px; font-size: 15px; font-weight: 500">
+<a href="Consulting.dc.html" style="color: #A9B4D0; text-decoration: none">Consulting</a>
+<a href="AIGovernance.dc.html" style="color: #A9B4D0; text-decoration: none">AI Governance</a>
+<a href="Apps.dc.html" aria-current="page" style="color: #FFFFFF; text-decoration: none">Apps</a>
+<a href="About.dc.html" style="color: #A9B4D0; text-decoration: none">About</a>
+<a href="Main.dc.html#contact" style="color: #0B1430; background: #6E9BFF; text-decoration: none; padding: 10px 18px; border-radius: 999px; font-weight: 600">Contact</a>
+</nav>
+</div>
+</header>
+
+<section style="background: #0E1A3B; color: #EEF2FB">
+<div class="wrap" style="padding-top: 88px; padding-bottom: 88px">
+<p style="margin: 0 0 20px; font-size: 15px; font-weight: 600; color: #A9C4FF">Apps</p>
+<h1 class="page-h1" style="margin: 0; max-width: 820px; font-size: 56px; line-height: 62px; font-weight: 700; letter-spacing: -0.03em">Micro apps for real problems.</h1>
+<p style="margin: 26px 0 0; max-width: 680px; font-size: 19px; line-height: 30px; color: #A9B4D0">Small, single-purpose software for problems that are real but too small or too specific for big products to solve well. AI-assisted development has changed who can build production software, and how fast. These apps are where I put that to work.</p>
+</div>
+</section>
+
+<section class="wrap" style="padding-top: 96px; padding-bottom: 112px">
+<div style="display: flex; flex-direction: column; background: #FFFFFF; border: 1px solid #E8ECF4; border-radius: 20px; box-shadow: 0 1px 2px rgba(11,27,63,0.04), 0 4px 14px rgba(11,27,63,0.05); overflow: hidden">
+<sc-for list="{{apps}}" as="a" hint-placeholder-count="2">
+<article style="display: flex; flex-wrap: wrap; align-items: center; gap: 24px 36px; padding: 36px 40px; border-bottom: 1px solid #E8ECF4">
+<div style="flex: 0 0 72px; width: 72px; height: 72px; border-radius: 20px; background: {{a.tile}}; display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-size: 30px; font-weight: 700">{{a.initial}}</div>
+<div style="flex: 999 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px">
+<h2 style="margin: 0; font-size: 26px; line-height: 32px; font-weight: 700; letter-spacing: -0.02em">{{a.name}}</h2>
+<span style="padding: 5px 12px; border-radius: 999px; background: {{a.statusFill}}; color: {{a.statusInk}}; font-size: 13px; font-weight: 600">{{a.status}}</span>
+</div>
+<p style="margin: 0; font-size: 16px; font-weight: 600; color: #1D4ED8">{{a.tagline}}</p>
+<p style="margin: 0; max-width: 680px; font-size: 16px; line-height: 25px; color: #55627E">{{a.body}}</p>
+</div>
+<div style="flex: 1 1 auto; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px">
+<sc-for list="{{a.links}}" as="l" hint-placeholder-count="2">
+<a href="#" style="{{l.style}}">{{l.label}}</a>
+</sc-for>
+</div>
+</article>
+</sc-for>
+</div></section>
+
+<footer style="border-top: 1px solid #E8ECF4; background: #FFFFFF">
+<div class="wrap" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding-top: 28px; padding-bottom: 28px; font-size: 14px; color: #55627E">
+<span>© 2026 Network Currency LLC. All rights reserved.</span>
+<span style="display: flex; flex-wrap: wrap; gap: 24px">
+<a href="#" style="color: #55627E; text-decoration: none">Legal</a>
+<a href="https://obligerapp.com" style="color: #55627E; text-decoration: none">Obliger</a>
+<a href="https://linkedin.com/in/markscottbaker" style="color: #55627E; text-decoration: none">LinkedIn</a>
+</span>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const primary = 'display: inline-flex; align-items: center; height: 48px; padding: 0 20px; border-radius: 16px; background: #2563EB; color: #FFFFFF; font-size: 15px; font-weight: 600; text-decoration: none';
+    const secondary = 'display: inline-flex; align-items: center; height: 48px; padding: 0 20px; border-radius: 16px; background: #EBEFF6; color: #0B1B3F; font-size: 15px; font-weight: 600; text-decoration: none';
+    const all = [
+      { name: 'Obliger', initial: 'O', tile: '#2563EB', status: 'Live', statusInk: '#1D4ED8', statusFill: '#E7EEFD', visible: true,
+        tagline: 'Shared recurring tasks for small groups.',
+        body: 'Households, families, and small teams set up the things that have to happen again and again, see who’s on it, and stop keeping score in their heads.',
+        links: [{ label: 'Visit obligerapp.com', style: primary }, { label: 'App Store', style: secondary }, { label: 'Google Play', style: secondary }] },
+      { name: 'Ask Baker', initial: 'B', tile: '#0E1A3B', status: 'In development', statusInk: '#55627E', statusFill: '#EBEFF6', visible: true,
+        tagline: 'Workplace advice, grounded in The Rules.',
+        body: 'A personal collection of lessons from 18+ years of leading teams and programs. Describe a situation or paste in a draft, and get advice based on the rules that apply.',
+        links: [] }
+    ];
+    return { apps: all.filter((a) => a.visible) };
+  }
+}
+</script>
+</body>
+</html>

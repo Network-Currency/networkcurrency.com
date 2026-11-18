@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Network Currency · About</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F5F7FB}
+a{color:#1D4ED8}a:hover{color:#2563EB}
+.wrap{max-width:1200px;margin:0 auto;padding:0 40px;box-sizing:border-box}
+@media (max-width:760px){.wrap{padding:0 20px}.page-h1{font-size:44px !important;line-height:48px !important}.navlinks{display:none !important}}
+</style>
+</helmet>
+<div style="font-family: Inter, system-ui, sans-serif; color: #0B1B3F; background: #F5F7FB; -webkit-font-smoothing: antialiased">
+
+<header style="background: #0E1A3B; border-bottom: 1px solid #22336A">
+<div class="wrap" style="display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 76px">
+<a href="Main.dc.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #EEF2FB">
+<svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true"><rect x="1" y="1" width="28" height="28" rx="8" stroke="#6E9BFF" stroke-width="2"></rect><circle cx="10" cy="10" r="2.5" fill="#6E9BFF"></circle><circle cx="20" cy="15" r="2.5" fill="#6E9BFF"></circle><circle cx="10" cy="20" r="2.5" fill="#6E9BFF"></circle><path d="M10 10L20 15L10 20" stroke="#6E9BFF" stroke-width="1.6"></path></svg>
+<span style="font-size: 17px; font-weight: 700; letter-spacing: -0.01em">Network Currency</span>
+</a>
+<nav class="navlinks" aria-label="Main" style="display: flex; align-items: center; gap: 32px; font-size: 15px; font-weight: 500">
+<a href="Consulting.dc.html" style="color: #A9B4D0; text-decoration: none">Consulting</a>
+<a href="AIGovernance.dc.html" style="color: #A9B4D0; text-decoration: none">AI Governance</a>
+<a href="Apps.dc.html" style="color: #A9B4D0; text-decoration: none">Apps</a>
+<a href="About.dc.html" aria-current="page" style="color: #FFFFFF; text-decoration: none">About</a>
+<a href="Main.dc.html#contact" style="color: #0B1430; background: #6E9BFF; text-decoration: none; padding: 10px 18px; border-radius: 999px; font-weight: 600">Contact</a>
+</nav>
+</div>
+</header>
+
+<section style="background: #0E1A3B; color: #EEF2FB">
+<div class="wrap" style="padding-top: 88px; padding-bottom: 88px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 48px 72px; align-items: center">
+<div>
+<p style="margin: 0 0 20px; font-size: 15px; font-weight: 600; color: #A9C4FF">About</p>
+<h1 class="page-h1" style="margin: 0; font-size: 64px; line-height: 68px; font-weight: 700; letter-spacing: -0.035em">Mark Baker</h1>
+<p style="margin: 26px 0 0; font-size: 19px; line-height: 30px; color: #A9B4D0">A technology and transformation leader with 18+ years of experience helping organizations turn ambitious ideas into working reality. I've led complex enterprise programs, built and scaled professional services teams and practices, and advised executives through high-stakes, C-suite-visible engagements.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px">
+<a href="https://linkedin.com/in/markscottbaker" style="display: inline-flex; align-items: center; height: 52px; padding: 0 24px; border-radius: 16px; background: #2563EB; color: #FFFFFF; font-size: 16px; font-weight: 600; text-decoration: none">LinkedIn</a>
+<a href="mailto:mark@networkcurrency.com" style="display: inline-flex; align-items: center; height: 52px; padding: 0 24px; border-radius: 16px; background: #17264F; border: 1px solid #2B3F78; color: #EEF2FB; font-size: 16px; font-weight: 600; text-decoration: none">Email me</a>
+</div>
+</div>
+<div style="justify-self: end; width: 100%; max-width: 420px; aspect-ratio: 4 / 5; border-radius: 20px; background: #17264F; border: 1px dashed #2B3F78; display: flex; align-items: center; justify-content: center; color: #A9B4D0; font-size: 15px; font-weight: 600">[Headshot]</div>
+</div>
+</section>
+
+<section class="wrap" style="padding-top: 96px">
+<p style="margin: 0 0 10px; font-size: 14px; font-weight: 600; color: #1D4ED8">The path</p>
+<h2 style="margin: 0 0 40px; font-size: 40px; line-height: 46px; font-weight: 700; letter-spacing: -0.025em">From the help desk to the C-suite, and back to building.</h2>
+<ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; background: #FFFFFF; border: 1px solid #E8ECF4; border-radius: 20px; overflow: hidden">
+<sc-for list="{{path}}" as="p" hint-placeholder-count="6">
+<li style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 8px 40px; padding: 30px 36px; border-bottom: 1px solid #E8ECF4">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 20px; line-height: 26px; font-weight: 700">{{p.org}}</span>
+<span style="font-size: 14px; font-weight: 600; color: #55627E">{{p.when}}</span>
+</div>
+<p style="margin: 0; font-size: 16px; line-height: 26px; color: #55627E">{{p.body}}</p>
+</li>
+</sc-for>
+</ol>
+</section>
+
+<section class="wrap" style="padding-top: 112px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px 72px; padding: 56px; background: #FFFFFF; border: 1px solid #E8ECF4; border-radius: 20px; box-shadow: 0 1px 2px rgba(11,27,63,0.04), 0 4px 14px rgba(11,27,63,0.05)">
+<div>
+<p style="margin: 0 0 10px; font-size: 14px; font-weight: 600; color: #1D4ED8">Why I build</p>
+<h2 style="margin: 0; font-size: 36px; line-height: 42px; font-weight: 700; letter-spacing: -0.025em">AI is collapsing the distance between an idea and working software.</h2>
+</div>
+<p style="margin: 0; font-size: 17px; line-height: 28px; color: #0B1B3F">I'm not a career engineer. I built Obliger, a production mobile app in the Apple and Google stores, using AI coding tools. That experience shaped my view of where this is going: more people will build real software, faster, and the organizations that benefit most will be the ones that govern it well.</p>
+</div>
+</section>
+
+<section class="wrap" style="padding-top: 112px; padding-bottom: 112px">
+<p style="margin: 0 0 10px; font-size: 14px; font-weight: 600; color: #1D4ED8">How I lead</p>
+<h2 style="margin: 0 0 40px; font-size: 40px; line-height: 46px; font-weight: 700; letter-spacing: -0.025em">A few rules I work by.</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px">
+<sc-for list="{{rules}}" as="r" hint-placeholder-count="5">
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 30px; background: #FFFFFF; border: 1px solid #E8ECF4; border-radius: 20px">
+<h3 style="margin: 0; font-size: 20px; line-height: 26px; font-weight: 700">{{r.title}}</h3>
+<p style="margin: 0; font-size: 16px; line-height: 25px; color: #55627E">{{r.body}}</p>
+</div>
+</sc-for>
+</div>
+<p style="margin: 40px 0 0; font-size: 15px; color: #55627E">BA, Psychology, Cornell University</p>
+</section>
+
+<footer style="border-top: 1px solid #E8ECF4; background: #FFFFFF">
+<div class="wrap" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding-top: 28px; padding-bottom: 28px; font-size: 14px; color: #55627E">
+<span>© 2026 Network Currency LLC. All rights reserved.</span>
+<span style="display: flex; flex-wrap: wrap; gap: 24px">
+<a href="#" style="color: #55627E; text-decoration: none">Legal</a>
+<a href="https://obligerapp.com" style="color: #55627E; text-decoration: none">Obliger</a>
+<a href="https://linkedin.com/in/markscottbaker" style="color: #55627E; text-decoration: none">LinkedIn</a>
+</span>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3200}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      path: [
+        { org: 'Where it started', when: 'IT support', body: 'Running servers and desktops for companies including Saatchi & Saatchi, Charles Schwab, and Levi’s. It taught me how technology actually works for the people who depend on it.' },
+        { org: 'Model Metrics and Salesforce', when: '2009 to 2017', body: 'Solution architect, project and program manager, practice director, and global leader of the Engagement Manager community. Helped introduce Scrum to Salesforce Professional Services.' },
+        { org: 'Silverline', when: '2017 to 2020', body: 'West region director, then VP of Delivery Operations, building the function from zero for a 100+ consultant organization.' },
+        { org: 'MuleSoft', when: '2020 to 2025', body: 'Director of Delivery Management and Engagement Director, leading a $25–30M portfolio and the company’s highest-risk accounts.' },
+        { org: 'Altimetrik', when: '2025 to 2026', body: 'Chief Practitioner, GenAI. Stepped back into hands-on delivery on purpose, to learn what it really takes to turn GenAI into working solutions. Built the AI governance practice from the ground up.' },
+        { org: 'Network Currency', when: '2026 to now', body: 'Consulting, and building software of my own.' }
+      ],
+      rules: [
+        { title: 'Manage through the windscreen.', body: 'Watch what’s coming, not just what already happened.' },
+        { title: 'Beware the all-green dashboard.', body: 'No real program is without problems.' },
+        { title: 'Teach judgment, not just methodology.', body: 'Know when and why to deviate.' },
+        { title: 'Coach first, then hold accountable.', body: 'Accountability builds trust.' },
+        { title: 'Don’t fail alone.', body: 'Escalate early and ask for help.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
