@@ -1,0 +1,51 @@
+meta:
+  title: About
+  description: Mark Baker, founder of Network Currency. Technology and transformation leader.
+eyebrow: About
+headline: Mark Baker
+intro: A technology and transformation leader with 18+ years of experience helping organizations turn ambitious ideas into working reality. I've led complex enterprise programs, built and scaled professional services teams and practices, and advised executives through high-stakes, C-suite-visible engagements.
+linkedinLabel: LinkedIn
+emailLabel: Email me
+# headshot: ./images/headshot.jpg
+headshotAlt: Mark Baker
+path:
+  eyebrow: The path
+  headline: From the help desk to the C-suite, and back to building.
+  items:
+    - org: Where it started
+      when: IT support
+      body: Running servers and desktops for companies including Saatchi & Saatchi, Charles Schwab, and Levi's. It taught me how technology actually works for the people who depend on it.
+    - org: Model Metrics and Salesforce
+      when: 2009 to 2017
+      body: Solution architect, project and program manager, practice director, and global leader of the Engagement Manager community. Helped introduce Scrum to Salesforce Professional Services.
+    - org: Silverline
+      when: 2017 to 2020
+      body: West region director, then VP of Delivery Operations, building the function from zero for a 100+ consultant organization.
+    - org: MuleSoft
+      when: 2020 to 2025
+      body: Director of Delivery Management and Engagement Director, leading a $25–30M portfolio and the company's highest-risk accounts.
+    - org: Altimetrik
+      when: 2025 to 2026
+      body: Chief Practitioner, GenAI. Stepped back into hands-on delivery on purpose, to learn what it really takes to turn GenAI into working solutions. Built the AI governance practice from the ground up.
+    - org: Network Currency
+      when: 2026 to now
+      body: Consulting, and building software of my own.
+whyBuild:
+  eyebrow: Why I build
+  headline: AI is collapsing the distance between an idea and working software.
+  body: "I'm not a career engineer. I built Obliger, a production mobile app, using AI coding tools. That experience shaped my view of where this is going: more people will build real software, faster, and the organizations that benefit most will be the ones that govern it well."
+rules:
+  eyebrow: How I lead
+  headline: A few rules I work by.
+  items:
+    - title: Manage through the windscreen.
+      body: Watch what's coming, not just what already happened.
+    - title: Beware the all-green dashboard.
+      body: No real program is without problems.
+    - title: Teach judgment, not just methodology.
+      body: Know when and why to deviate.
+    - title: Coach first, then hold accountable.
+      body: Accountability builds trust.
+    - title: Don't fail alone.
+      body: Escalate early and ask for help.
+education: BA, Psychology, Cornell University

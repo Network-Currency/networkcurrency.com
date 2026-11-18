@@ -1,0 +1,16 @@
+meta:
+  title: AI Governance
+  description: Frameworks, articles, and commentary on AI governance by Mark Baker.
+eyebrow: AI Governance
+headline: A framework is the starting point. The real work is making it fit.
+intro:
+  - The fundamentals of good technology leadership haven't changed. Start with the problem, understand the value, make deliberate choices about investment and risk, and close the loop with measured results.
+  - "What generative AI changes is the landscape: new consumption economics, unpredictable results, and dramatically lower barriers to entry. That makes controls more important, and more specific to each organization, than ever."
+featured:
+  eyebrow: Featured
+library:
+  headline: Library
+  note: Each piece is hosted here, with a link to discuss it on LinkedIn.
+readLabel: Read →
+discussLabel: Discuss this on LinkedIn →
+backLabel: ← All writing

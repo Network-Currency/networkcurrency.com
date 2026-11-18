@@ -1,0 +1,43 @@
+meta:
+  title: Network Currency
+  description: Technology advisory and focused software. AI strategy, governance, and enterprise delivery.
+eyebrow: Network Currency LLC
+headline: Technology advisory and focused software.
+intro: AI strategy, governance, and enterprise delivery from someone who has led the programs and built the products.
+primaryCta:
+  label: Work with me
+  href: /consulting/
+secondaryCta:
+  label: See the apps
+  href: /apps/
+stats:
+  - value: "18+"
+    label: years in enterprise delivery
+  - value: "$40M"
+    label: largest program led
+  - value: "150+"
+    label: consultants on one program
+  - value: "9.7/10"
+    label: average CSAT
+doorways:
+  consulting:
+    label: Consulting
+    headline: Advisory and leadership for AI adoption and complex technology programs.
+    linkLabel: Explore consulting →
+  apps:
+    label: Apps
+    headline: Small, focused software for real problems bigger products ignore.
+    linkLabel: See the apps →
+work:
+  eyebrow: Selected work
+  headline: Programs led, practices built.
+  linkLabel: All work →
+writing:
+  eyebrow: Writing on AI governance
+  headline: A framework is the starting point.
+  intro: Frameworks, articles, and commentary on governing AI so organizations can adopt it with confidence.
+  linkLabel: All writing →
+contactBand:
+  headline: Have a program that needs a steady hand, or an AI initiative that needs a plan?
+  body: Let's talk. I read everything and reply personally.
+  linkedinLabel: LinkedIn

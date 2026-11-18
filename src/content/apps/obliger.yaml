@@ -1,0 +1,11 @@
+name: Obliger
+tagline: Shared recurring tasks for small groups.
+description: Households, families, and small teams set up the things that have to happen again and again, see who's on it, and stop keeping score in their heads.
+status: live
+initial: O
+tile: accent
+order: 1
+links:
+  - label: Visit obligerapp.com
+    href: https://obligerapp.com
+    primary: true

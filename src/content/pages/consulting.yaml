@@ -1,0 +1,28 @@
+meta:
+  title: Consulting
+  description: AI strategy and governance, GenAI implementation, delivery leadership, practice building, and Salesforce advisory.
+eyebrow: Consulting
+headline: Adopt AI responsibly. Deliver complex programs well.
+intro: Advisory and leadership drawn from 18+ years of enterprise delivery at Salesforce, MuleSoft, Silverline, and Altimetrik, and from building production software with the same AI tools my clients are evaluating.
+services:
+  eyebrow: Services
+  headline: Five ways I help.
+engagementsLabel: Typical engagements
+casesLabel: Selected work
+caseLabels:
+  situation: Situation
+  did: What I did
+  result: Result
+models:
+  eyebrow: How we can work together
+  headline: Engagement models.
+  items:
+    - name: Advisory
+      body: "A focused engagement to answer a specific question: an assessment, a strategy, a framework, or a second opinion."
+    - name: Fractional leadership
+      body: Part-time senior leadership for a program, a practice, or an AI initiative.
+    - name: Project-based
+      body: Defined scope, defined deliverables, defined end date.
+contactBand:
+  headline: Let's talk about what you're working on.
+  body: A short conversation is usually enough to tell whether I can help.

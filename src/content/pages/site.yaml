@@ -1,0 +1,30 @@
+# Site-wide copy: name, navigation, footer and labels used on several pages.
+name: Network Currency
+legalName: Network Currency LLC
+description: Technology advisory and focused software from Network Currency LLC.
+email: mark@networkcurrency.com
+linkedin: https://linkedin.com/in/markscottbaker
+nav:
+  - label: Consulting
+    href: /consulting/
+  - label: AI Governance
+    href: /ai-governance/
+  - label: Apps
+    href: /apps/
+  - label: About
+    href: /about/
+contactCta:
+  label: Contact
+  href: /#contact
+statusLabels:
+  live: Live
+  in-development: In development
+footer:
+  copyright: "© 2026 Network Currency LLC. All rights reserved."
+  links:
+    - label: Legal
+      href: /legal/
+    - label: Obliger
+      href: https://obligerapp.com
+    - label: LinkedIn
+      href: https://linkedin.com/in/markscottbaker

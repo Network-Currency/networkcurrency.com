@@ -1,0 +1,20 @@
+meta:
+  title: Legal
+  description: Legal information and website privacy notice for Network Currency LLC.
+headline: Legal
+sections:
+  - heading: Company
+    paragraphs:
+      - Network Currency LLC, a California limited liability company.
+      - "Contact: mark@networkcurrency.com"
+  - heading: Website privacy
+    paragraphs:
+      - This website does not use cookies, analytics, or forms, and does not collect personal information. If you email us, we use your message only to reply.
+  - heading: App policies
+    paragraphs:
+      - Each app has its own privacy policy and terms.
+    links:
+      - label: Obliger Privacy Policy
+        href: https://obligerapp.com/legal/privacy-policy.html
+      - label: Obliger Terms of Use
+        href: https://obligerapp.com/legal/terms-of-use.html
