@@ -19,7 +19,11 @@ const hasAside = Astro.slots.has('aside');
         <h1>
           {
             Array.isArray(headline)
-              ? headline.map((line) => <span class="line">{line}</span>)
+              ? headline.map((line) => (
+                  <>
+                    <span class="line">{line}</span>{' '}
+                  </>
+                ))
               : headline
           }
         </h1>
@@ -71,6 +75,7 @@ const hasAside = Astro.slots.has('aside');
   }
   .line {
     display: block;
+    text-wrap: balance;
   }
   .home h1 {
     max-width: 900px;
@@ -116,6 +121,9 @@ const hasAside = Astro.slots.has('aside');
     .home h1 {
       font-size: 44px;
       line-height: 48px;
+    }
+    .line + .line {
+      margin-top: var(--space-4);
     }
   }
 </style>
