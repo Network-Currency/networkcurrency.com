@@ -23,7 +23,7 @@ const site = defineCollection({
     statusLabels: z.object({ live: z.string(), 'in-development': z.string() }),
     footer: z.object({ copyright: z.string(), links: z.array(link) }),
     notFound: z
-      .object({ headline: z.string(), intro: z.string().optional(), linkLabel: z.string().optional() })
+      .object({ headline: lines, intro: z.string().optional(), linkLabel: z.string().optional() })
       .optional(),
   }),
 });
@@ -40,7 +40,7 @@ const home = defineCollection({
   schema: z.object({
     meta,
     eyebrow: z.string(),
-    headline: z.union([z.string(), z.array(z.string()).nonempty()]),
+    headline: lines,
     intro: z.string(),
     primaryCta: link,
     secondaryCta: link,
@@ -65,7 +65,7 @@ const consulting = defineCollection({
   schema: z.object({
     meta,
     eyebrow: z.string(),
-    headline: z.string(),
+    headline: lines,
     intro: z.string(),
     services: eyebrowHeadline,
     engagementsLabel: z.string(),
@@ -87,7 +87,7 @@ const aiGovernance = defineCollection({
   schema: z.object({
     meta,
     eyebrow: z.string(),
-    headline: z.string(),
+    headline: lines,
     intro: z.array(z.string()),
     featured: z.object({ eyebrow: z.string() }),
     library: z.object({ headline: z.string(), note: z.string().optional() }),
@@ -99,7 +99,7 @@ const aiGovernance = defineCollection({
 
 const appsPage = defineCollection({
   loader: pageLoader('apps.yaml'),
-  schema: z.object({ meta, eyebrow: z.string(), headline: z.string(), intro: z.string() }),
+  schema: z.object({ meta, eyebrow: z.string(), headline: lines, intro: z.string() }),
 });
 
 const about = defineCollection({
@@ -108,7 +108,7 @@ const about = defineCollection({
   z.object({
     meta,
     eyebrow: z.string(),
-    headline: z.string(),
+    headline: lines,
     intro: z.string(),
     linkedinLabel: z.string(),
     emailLabel: z.string(),
@@ -129,7 +129,7 @@ const legal = defineCollection({
   loader: pageLoader('legal.yaml'),
   schema: z.object({
     meta,
-    headline: z.string(),
+    headline: lines,
     sections: z.array(
       z.object({
         heading: z.string(),
