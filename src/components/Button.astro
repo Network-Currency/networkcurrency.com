@@ -1,7 +1,7 @@
 ---
 interface Props {
   href: string;
-  variant?: 'primary' | 'secondary' | 'on-navy' | 'accent';
+  variant?: 'primary' | 'secondary' | 'on-navy' | 'accent' | 'on-accent' | 'outline';
   size?: 'lg' | 'md' | 'sm';
   external?: boolean;
 }
@@ -73,5 +73,22 @@ const { href, variant = 'primary', size = 'lg', external = false } = Astro.props
   .on-navy:hover {
     color: var(--ink);
     filter: brightness(1.15);
+  }
+  .on-accent {
+    background: var(--surface);
+    color: var(--accent-ink);
+  }
+  .on-accent:hover {
+    color: var(--accent-ink);
+    filter: brightness(0.96);
+  }
+  .outline {
+    background: transparent;
+    border-color: var(--border-field);
+    color: var(--ink);
+  }
+  .outline:hover {
+    color: var(--ink);
+    background: var(--border);
   }
 </style>

@@ -6,7 +6,9 @@ const meta = z.object({ title: z.string(), description: z.string() });
 const link = z.object({ label: z.string(), href: z.string() });
 const eyebrowHeadline = z.object({ eyebrow: z.string(), headline: z.string() });
 
-const pageLoader = (file: string) => glob({ pattern: file, base: './src/content/pages' });
+const lines = z.union([z.string(), z.array(z.string()).nonempty()]);
+
+const pageLoader =(file: string) => glob({ pattern: file, base: './src/content/pages' });
 
 const site = defineCollection({
   loader: pageLoader('site.yaml'),
@@ -49,7 +51,12 @@ const home = defineCollection({
     }),
     work: eyebrowHeadline.extend({ linkLabel: z.string() }),
     writing: eyebrowHeadline.extend({ intro: z.string(), linkLabel: z.string() }),
-    contactBand: z.object({ headline: z.string(), body: z.string(), linkedinLabel: z.string() }),
+    contactBand: z.object({
+      eyebrow: z.string().optional(),
+      headline: lines,
+      body: z.string(),
+      linkedinLabel: z.string(),
+    }),
   }),
 });
 
@@ -67,7 +74,11 @@ const consulting = defineCollection({
     models: eyebrowHeadline.extend({
       items: z.array(z.object({ name: z.string(), body: z.string() })),
     }),
-    contactBand: z.object({ headline: z.string(), body: z.string() }),
+    contactBand: z.object({
+      eyebrow: z.string().optional(),
+      headline: lines,
+      body: z.string(),
+    }),
   }),
 });
 

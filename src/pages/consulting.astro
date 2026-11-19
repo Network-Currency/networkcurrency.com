@@ -116,7 +116,11 @@ const pad = (n: number) => String(n).padStart(2, '0');
     )
   }
 
-  <ContactBand headline={page.contactBand.headline} body={page.contactBand.body} />
+  <ContactBand
+    eyebrow={page.contactBand.eyebrow}
+    headline={page.contactBand.headline}
+    body={page.contactBand.body}
+  />
 </BaseLayout>
 
 <style>

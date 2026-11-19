@@ -1,0 +1,29 @@
+---
+interface Props {
+  text: string | string[];
+}
+const { text } = Astro.props;
+---
+
+{
+  Array.isArray(text) ? (
+    text.map((line) => (
+      <>
+        <span class="line">{line}</span>{' '}
+      </>
+    ))
+  ) : (
+    text
+  )
+}
+
+<style>
+  .line {
+    display: block;
+    text-wrap: balance;
+  }
+  /* The parent heading sets --line-gap (for example on phones) to separate the lines. */
+  .line + .line {
+    margin-top: var(--line-gap, 0);
+  }
+</style>

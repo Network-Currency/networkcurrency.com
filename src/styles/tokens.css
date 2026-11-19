@@ -78,3 +78,16 @@
   background: var(--bg);
   color: var(--ink);
 }
+
+/* Accent band set: the contact band. Re-assigns the semantic tokens for everything inside. */
+.accent-band {
+  --bg: var(--action);
+  --surface: var(--white);
+  --border: rgba(255, 255, 255, 0.28);
+  --border-field: var(--white);
+  --ink: var(--white);
+  --ink-muted: var(--white);
+  --accent: var(--white);
+  background: var(--bg);
+  color: var(--ink);
+}

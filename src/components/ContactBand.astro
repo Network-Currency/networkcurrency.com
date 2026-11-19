@@ -1,27 +1,31 @@
 ---
 import Container from './Container.astro';
 import Button from './Button.astro';
+import HeadlineLines from './HeadlineLines.astro';
 import { getSite } from '../lib/content';
 
 interface Props {
-  headline: string;
+  eyebrow?: string;
+  headline: string | string[];
   body: string;
   linkedinLabel?: string;
   id?: string;
 }
-const { headline, body, linkedinLabel, id } = Astro.props;
+const { eyebrow, headline, body, linkedinLabel, id } = Astro.props;
 const site = await getSite();
 ---
 
 <Container as="section" id={id} class="pt-xl pb-lg">
-  <div class="band navy">
-    <div class="text">
-      <h2>{headline}</h2>
-      <p>{body}</p>
-    </div>
-    <div class="actions">
-      <Button href={`mailto:${site.email}`} variant="primary">{site.email}</Button>
-      {linkedinLabel && <Button href={site.linkedin} variant="on-navy">{linkedinLabel}</Button>}
+  <div class="band accent-band">
+    {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+    <h2><HeadlineLines text={headline} /></h2>
+    <div class="rule"></div>
+    <div class="row">
+      <p class="body">{body}</p>
+      <div class="actions">
+        <Button href={`mailto:${site.email}`} variant="on-accent">{site.email}</Button>
+        {linkedinLabel && <Button href={site.linkedin} variant="outline">{linkedinLabel}</Button>}
+      </div>
     </div>
   </div>
 </Container>
@@ -29,28 +33,38 @@ const site = await getSite();
 <style>
   .band {
     display: flex;
+    flex-direction: column;
+    gap: 28px;
+    padding: 64px 64px 60px;
+    border-radius: var(--radius-card);
+  }
+  .eyebrow {
+    font-size: 15px;
+    font-weight: 600;
+  }
+  h2 {
+    font-size: 46px;
+    line-height: 56px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+  .rule {
+    height: 1px;
+    background: var(--border);
+  }
+  .row {
+    display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    gap: var(--space-8);
-    padding: var(--space-14);
-    border-radius: var(--radius-card);
+    gap: var(--space-6);
   }
-  .text {
-    flex: 1 1 480px;
+  .body {
+    flex: 1 1 360px;
     max-width: 620px;
-  }
-  h2 {
-    font-size: 36px;
-    line-height: 42px;
-    font-weight: 700;
-    letter-spacing: -0.025em;
-  }
-  p {
-    margin-top: var(--space-4);
-    font-size: 17px;
-    line-height: 26px;
-    color: var(--ink-muted);
+    font-size: 18px;
+    line-height: 27px;
   }
   .actions {
     display: flex;
@@ -60,11 +74,13 @@ const site = await getSite();
 
   @media (max-width: 760px) {
     .band {
+      gap: var(--space-5);
       padding: var(--space-8) var(--space-6);
     }
     h2 {
       font-size: 28px;
-      line-height: 34px;
+      line-height: 35px;
+      --line-gap: var(--space-3);
     }
   }
 </style>
