@@ -75,10 +75,11 @@ layout change.
 Rules the layouts implement:
 
 - `service` on a case must match a service `name` exactly, or the build fails.
-- `status` on an app is `live`, `in-development` or `hidden`. `hidden` removes it from every page
-  without deleting the file. The label shown for each status comes from `site.yaml`.
+- `status` on an app is `live`, `in-development`, `coming soon!` or `hidden`. `hidden` removes it from every page
+  without deleting the file. The label shown for each status comes from `statusLabels` in `site.yaml`;
+  an app whose status has no label there fails the build with a message naming the app.
 - `tile` on an app is `accent` or `navy`, the color of its initial tile until an icon image exists.
-- `type` on a writing item is `Framework`, `Article`, `Talk` or `Press`.
+- `type` on a writing item is `Framework`, `Article`, `Talk`, `Press` or `Written for Altimetrik`.
 - A writing item with a body is hosted at `/ai-governance/<slug>/` and ends with a link to its
   LinkedIn discussion when `linkedin` is set. One without a body links to its `url`.
 - Writing is listed newest `date` first, then by `order`; items without a date follow dated ones.

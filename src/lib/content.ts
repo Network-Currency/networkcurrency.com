@@ -92,5 +92,11 @@ export function statusLabelFor(site: Awaited<ReturnType<typeof getSite>>, app: A
   if (app.data.status === 'hidden') {
     throw new Error(`src/content/apps/${app.id}.yaml: hidden apps have no status label`);
   }
-  return site.statusLabels[app.data.status];
+  const label = site.statusLabels[app.data.status];
+  if (!label) {
+    throw new Error(
+      `src/content/apps/${app.id}.yaml: status "${app.data.status}" has no label under statusLabels in src/content/pages/site.yaml`,
+    );
+  }
+  return label;
 }

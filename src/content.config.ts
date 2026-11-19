@@ -23,7 +23,11 @@ const site = defineCollection({
     linkedin: z.url(),
     nav: z.array(link),
     contactCta: link,
-    statusLabels: z.object({ live: z.string(), 'in-development': z.string() }),
+    statusLabels: z.object({
+      live: z.string(),
+      'in-development': z.string(),
+      'coming soon!': z.string().optional(),
+    }),
     footer: z.object({ copyright: z.string(), links: z.array(link) }),
     notFound: z
       .object({ headline: lines, intro: text.optional(), linkLabel: z.string().optional() })
@@ -177,7 +181,7 @@ const apps = defineCollection({
     name: z.string(),
     tagline: z.string(),
     description: text,
-    status: z.enum(['live', 'in-development', 'hidden']),
+    status: z.enum(['live', 'in-development', 'hidden', 'coming soon!']),
     initial: z.string(),
     tile: z.enum(['accent', 'navy']),
     order: z.number(),
@@ -191,7 +195,7 @@ const writing = defineCollection({
   loader: glob({ pattern: '*.md', base: './src/content/writing' }),
   schema: z.object({
     title: z.string(),
-    type: z.enum(['Framework', 'Article', 'Talk', 'Press']),
+    type: z.enum(['Framework', 'Article', 'Talk', 'Press', 'Written for Altimetrik']),
     typeDetail: z.string().optional(),
     date: z.coerce.date().optional(),
     summary: text,
