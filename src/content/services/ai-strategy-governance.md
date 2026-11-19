@@ -3,12 +3,13 @@ name: AI Strategy & Governance
 shortName: AI Strategy & Governance
 order: 1
 engagements:
-  - AI readiness assessment
-  - Use-case prioritization
-  - AI policy and controls
   - Governance operating model
   - Risk and regulatory alignment
+  - Use-case prioritization
+  - AI policy and controls
 showWriting: true
-writingLinkLabel: View all AI governance writing →
+writingLinkLabel: View the AI governance content library →
 ---
-Most organizations don't have an AI problem. They have a decision-making problem that AI makes urgent. I help leadership teams decide where AI creates real value, put the right controls in place, and build an operating model that lets adoption scale without losing accountability. Governance done well is not a brake. It's what lets an organization say yes with confidence.
+Fear of falling behind has driven GenAI into the business with unprecedented speed. Leadership mandated AI adoption at all costs...and cost it did. Now companies are realizing that without the right controls risk accumulates, value is elusive, and costs can spiral out of control.  
+
+I help organizations of all sizes and industries ask the right questions and negotiate the answers that put the right controls in place and build an operating model that will make it to production.  Governance done well is not a brake. It's what lets an organization say yes with confidence.

@@ -2,7 +2,10 @@ meta:
   title: Network Currency
   description: AI Strategy & Governance, Enterprise Delivery, and Custom Solutions.
 eyebrow: Network Currency LLC
-headline: AI Strategy & Governance | Enterprise Delivery | Custom Solutions
+headline:
+  - AI Strategy & Governance
+  - Enterprise Delivery
+  - Custom Solutions
 intro: I've led the programs, built the teams, and delivered the products.  Transformation is what I do.
 primaryCta:
   label: Work with me
@@ -16,17 +19,21 @@ stats:
   - value: "$40M"
     label: largest program led
   - value: "150+"
-    label: consultants on one program
+    label: largest team led
   - value: "9.7/10"
     label: average CSAT
 doorways:
   consulting:
     label: Consulting
-    headline: Advisory and leadership for AI adoption and complex technology programs.
+    headline: Advisory and leadership for
+    points:
+      - Impactful AI adoption
+      - Complex technology programs
+      - Professional services delivery
     linkLabel: Explore consulting →
   apps:
     label: Apps
-    headline: Small, focused software for real problems bigger products ignore.
+    headline: Custom software that addresses your needs exactly, delivered at the speed of AI.
     linkLabel: See the apps →
 work:
   eyebrow: Selected work
@@ -34,10 +41,13 @@ work:
   linkLabel: All work →
 writing:
   eyebrow: Writing on AI governance
-  headline: A framework is the starting point.
-  intro: Frameworks, articles, and commentary on governing AI so organizations can adopt it with confidence.
+  headline: The AI Governance Playbook
+  intro: Frameworks, articles, and commentary on governing AI to maximize effectiveness, impact, and return on your investment.
   linkLabel: All writing →
 contactBand:
-  headline: Have a program that needs a steady hand, or an AI initiative that needs a plan?
+  eyebrow: Work with me
+  headline:
+    - Does your program need a steady hand?
+    - Does your AI strategy need a plan?
   body: Let's talk. I read everything and reply personally.
   linkedinLabel: LinkedIn

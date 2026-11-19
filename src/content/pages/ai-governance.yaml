@@ -2,15 +2,15 @@ meta:
   title: AI Governance
   description: Frameworks, articles, and commentary on AI governance by Mark Baker.
 eyebrow: AI Governance
-headline: A framework is the starting point. The real work is making it fit.
+headline: You can't build governance without a template, but you can't operate a template.
 intro:
-  - The fundamentals of good technology leadership haven't changed. Start with the problem, understand the value, make deliberate choices about investment and risk, and close the loop with measured results.
-  - "What generative AI changes is the landscape: new consumption economics, unpredictable results, and dramatically lower barriers to entry. That makes controls more important, and more specific to each organization, than ever."
+  - "The fundamental practices of technology control haven't changed, but the landscape has.  Consumption economics, unpredictable results, and dramatically lower barriers to entry have made the old playbooks obsolete."
+  - "Now more than ever, clear technology controls must be custom fit to your organization.  How does your company make decisions?  What do you need more, control or acceleration?  How much operational drag is tolerable?  I know the questions to ask, and I can help you answer them."
 featured:
   eyebrow: Featured
 library:
   headline: Library
-  note: Each piece is hosted here, with a link to discuss it on LinkedIn.
+  # note: Each piece is hosted here, with a link to discuss it on LinkedIn.
 readLabel: Read →
 discussLabel: Discuss this on LinkedIn →
 backLabel: ← All writing

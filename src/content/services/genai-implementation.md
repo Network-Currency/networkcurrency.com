@@ -9,4 +9,6 @@ engagements:
   - Human-in-the-loop design
   - AI-enabled delivery
 ---
-The hard part of GenAI is not the demo. It's the path from pilot to production: success criteria, data and security constraints, human review, cost, and adoption. I've led enterprise GenAI implementations in insurance, travel, and legal services, and I build with these tools myself. I help teams choose the right approach, structure the program, and get to something that works in production.
+The hard part of GenAI is not the demo. It's the path from concept to pilot to production: realistic targets, clear success criteria, data and security constraints, proper evalution and testing, realistic cost forecasting, and proactive adoption that lands. 
+
+I've led enterprise GenAI implementations in insurance, travel, and legal services, and I build with these tools myself. I help teams choose the right approach, structure a great program, and get to production with measureable value.

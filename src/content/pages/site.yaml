@@ -19,6 +19,7 @@ contactCta:
 statusLabels:
   live: Live
   in-development: In development
+  "coming soon!": Coming Soon!
 footer:
   copyright: "© 2026 Network Currency LLC. All rights reserved."
   links:
