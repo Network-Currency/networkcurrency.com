@@ -18,7 +18,7 @@ const hasAside = Astro.slots.has('aside');
       <div>
         {eyebrow && <p class="eyebrow">{eyebrow}</p>}
         <h1><HeadlineLines text={headline} /></h1>
-        {intro && <p class="intro">{intro}</p>}
+        {intro && <p class="intro keep-breaks">{intro}</p>}
         <slot />
       </div>
       {

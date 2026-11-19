@@ -36,7 +36,7 @@ const site = await getSite();
               <span class="org">{p.org}</span>
               <span class="when">{p.when}</span>
             </div>
-            <p>{p.body}</p>
+            <p class="keep-breaks">{p.body}</p>
           </li>
         ))
       }
@@ -49,7 +49,7 @@ const site = await getSite();
         <p class="eyebrow">{page.whyBuild.eyebrow}</p>
         <h2>{page.whyBuild.headline}</h2>
       </div>
-      <p class="why-body">{page.whyBuild.body}</p>
+      <p class="why-body keep-breaks">{page.whyBuild.body}</p>
     </div>
   </Container>
 
@@ -60,12 +60,12 @@ const site = await getSite();
         page.rules.items.map((r) => (
           <div class="rule">
             <h3>{r.title}</h3>
-            <p>{r.body}</p>
+            <p class="keep-breaks">{r.body}</p>
           </div>
         ))
       }
     </div>
-    <p class="education">{page.education}</p>
+    <p class="education keep-breaks">{page.education}</p>
   </Container>
 </BaseLayout>
 

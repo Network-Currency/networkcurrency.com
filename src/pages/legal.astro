@@ -17,7 +17,7 @@ const page = await getLegal();
           <section>
             <h2>{section.heading}</h2>
             {section.paragraphs.map((p) => (
-              <p>{p}</p>
+              <p class="keep-breaks">{p}</p>
             ))}
             {section.links.length > 0 && (
               <ul>

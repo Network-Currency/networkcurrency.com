@@ -29,7 +29,7 @@ const kind = writingKind(item);
     >
       <Chip variant="accent" size="md">{kind}</Chip>
       <span class="title">{w.title}</span>
-      <span class="summary">{w.summary}</span>
+      <span class="summary keep-breaks">{w.summary}</span>
       <span class="foot">
         {w.date && <span class="date">{formatDate(w.date)}</span>}
         {readLabel && <span class="read">{readLabel}</span>}

@@ -30,7 +30,7 @@ const statusVariant = a.status === 'live' ? 'accent' : 'muted';
           <Chip variant={statusVariant}>{statusLabel}</Chip>
         </div>
         <p class="tagline">{a.tagline}</p>
-        <p class="description">{a.description}</p>
+        <p class="description keep-breaks">{a.description}</p>
       </div>
       {
         a.links.length > 0 && (

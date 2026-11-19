@@ -37,16 +37,16 @@ if (variant === 'full' && !labels) {
       <dl>
         <div>
           <dt>{labels?.situation}</dt>
-          <dd>{c.situation}</dd>
+          <dd class="keep-breaks">{c.situation}</dd>
         </div>
         <div>
           <dt>{labels?.did}</dt>
-          <dd>{c.did}</dd>
+          <dd class="keep-breaks">{c.did}</dd>
         </div>
       </dl>
       <div class="result">
         <div class="result-label">{labels?.result}</div>
-        <div class="result-text">{c.result}</div>
+        <div class="result-text keep-breaks">{c.result}</div>
       </div>
     </article>
   )

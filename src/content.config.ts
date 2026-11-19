@@ -6,9 +6,12 @@ const meta = z.object({ title: z.string(), description: z.string() });
 const link = z.object({ label: z.string(), href: z.string() });
 const eyebrowHeadline = z.object({ eyebrow: z.string(), headline: z.string() });
 
+/** Paragraph-style text. Trimmed so block-scalar YAML does not add a trailing blank line. */
+const text = z.string().trim();
+
 const lines = z.union([z.string(), z.array(z.string()).nonempty()]);
 
-const pageLoader =(file: string) => glob({ pattern: file, base: './src/content/pages' });
+const pageLoader = (file: string) => glob({ pattern: file, base: './src/content/pages' });
 
 const site = defineCollection({
   loader: pageLoader('site.yaml'),
@@ -23,7 +26,7 @@ const site = defineCollection({
     statusLabels: z.object({ live: z.string(), 'in-development': z.string() }),
     footer: z.object({ copyright: z.string(), links: z.array(link) }),
     notFound: z
-      .object({ headline: lines, intro: z.string().optional(), linkLabel: z.string().optional() })
+      .object({ headline: lines, intro: text.optional(), linkLabel: z.string().optional() })
       .optional(),
   }),
 });
@@ -41,7 +44,7 @@ const home = defineCollection({
     meta,
     eyebrow: z.string(),
     headline: lines,
-    intro: z.string(),
+    intro: text,
     primaryCta: link,
     secondaryCta: link,
     stats: z.array(z.object({ value: z.string(), label: z.string() })),
@@ -50,11 +53,11 @@ const home = defineCollection({
       apps: doorway,
     }),
     work: eyebrowHeadline.extend({ linkLabel: z.string() }),
-    writing: eyebrowHeadline.extend({ intro: z.string(), linkLabel: z.string() }),
+    writing: eyebrowHeadline.extend({ intro: text, linkLabel: z.string() }),
     contactBand: z.object({
       eyebrow: z.string().optional(),
       headline: lines,
-      body: z.string(),
+      body: text,
       linkedinLabel: z.string(),
     }),
   }),
@@ -66,18 +69,18 @@ const consulting = defineCollection({
     meta,
     eyebrow: z.string(),
     headline: lines,
-    intro: z.string(),
+    intro: text,
     services: eyebrowHeadline,
     engagementsLabel: z.string(),
     casesLabel: z.string(),
     caseLabels: z.object({ situation: z.string(), did: z.string(), result: z.string() }),
     models: eyebrowHeadline.extend({
-      items: z.array(z.object({ name: z.string(), body: z.string() })),
+      items: z.array(z.object({ name: z.string(), body: text })),
     }),
     contactBand: z.object({
       eyebrow: z.string().optional(),
       headline: lines,
-      body: z.string(),
+      body: text,
     }),
   }),
 });
@@ -88,9 +91,9 @@ const aiGovernance = defineCollection({
     meta,
     eyebrow: z.string(),
     headline: lines,
-    intro: z.array(z.string()),
+    intro: z.array(text),
     featured: z.object({ eyebrow: z.string() }),
-    library: z.object({ headline: z.string(), note: z.string().optional() }),
+    library: z.object({ headline: z.string(), note: text.optional() }),
     readLabel: z.string(),
     discussLabel: z.string(),
     backLabel: z.string(),
@@ -99,30 +102,30 @@ const aiGovernance = defineCollection({
 
 const appsPage = defineCollection({
   loader: pageLoader('apps.yaml'),
-  schema: z.object({ meta, eyebrow: z.string(), headline: lines, intro: z.string() }),
+  schema: z.object({ meta, eyebrow: z.string(), headline: lines, intro: text }),
 });
 
 const about = defineCollection({
   loader: pageLoader('about.yaml'),
   schema: ({ image }) =>
-  z.object({
-    meta,
-    eyebrow: z.string(),
-    headline: lines,
-    intro: z.string(),
-    linkedinLabel: z.string(),
-    emailLabel: z.string(),
-    headshot: image().optional(),
-    headshotAlt: z.string().optional(),
-    path: eyebrowHeadline.extend({
-      items: z.array(z.object({ org: z.string(), when: z.string(), body: z.string() })),
+    z.object({
+      meta,
+      eyebrow: z.string(),
+      headline: lines,
+      intro: text,
+      linkedinLabel: z.string(),
+      emailLabel: z.string(),
+      headshot: image().optional(),
+      headshotAlt: z.string().optional(),
+      path: eyebrowHeadline.extend({
+        items: z.array(z.object({ org: z.string(), when: z.string(), body: text })),
+      }),
+      whyBuild: eyebrowHeadline.extend({ body: text }),
+      rules: eyebrowHeadline.extend({
+        items: z.array(z.object({ title: z.string(), body: text })),
+      }),
+      education: text,
     }),
-    whyBuild: eyebrowHeadline.extend({ body: z.string() }),
-    rules: eyebrowHeadline.extend({
-      items: z.array(z.object({ title: z.string(), body: z.string() })),
-    }),
-    education: z.string(),
-  }),
 });
 
 const legal = defineCollection({
@@ -133,7 +136,7 @@ const legal = defineCollection({
     sections: z.array(
       z.object({
         heading: z.string(),
-        paragraphs: z.array(z.string()).default([]),
+        paragraphs: z.array(text).default([]),
         links: z.array(link).default([]),
       }),
     ),
@@ -158,9 +161,9 @@ const cases = defineCollection({
     title: z.string(),
     client: z.string(),
     service: z.string(),
-    situation: z.string(),
-    did: z.string(),
-    result: z.string(),
+    situation: text,
+    did: text,
+    result: text,
     metric: z.string().optional(),
     metricLabel: z.string().optional(),
     featured: z.boolean().default(false),
@@ -173,7 +176,7 @@ const apps = defineCollection({
   schema: z.object({
     name: z.string(),
     tagline: z.string(),
-    description: z.string(),
+    description: text,
     status: z.enum(['live', 'in-development', 'hidden']),
     initial: z.string(),
     tile: z.enum(['accent', 'navy']),
@@ -191,7 +194,7 @@ const writing = defineCollection({
     type: z.enum(['Framework', 'Article', 'Talk', 'Press']),
     typeDetail: z.string().optional(),
     date: z.coerce.date().optional(),
-    summary: z.string(),
+    summary: text,
     url: z.url().optional(),
     linkedin: z.url().optional(),
     featured: z.boolean().default(false),

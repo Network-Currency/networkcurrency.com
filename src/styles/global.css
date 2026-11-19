@@ -57,6 +57,11 @@ a:hover {
   padding-bottom: var(--space-28);
 }
 
+/* Paragraph-style content: keep line breaks typed in the content file. */
+.keep-breaks {
+  white-space: pre-line;
+}
+
 /* Section heading scale */
 .h-section {
   font-size: 40px;

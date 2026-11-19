@@ -13,7 +13,7 @@ const highlighted = writing.find((w) => w.data.highlight);
 <BaseLayout meta={page.meta}>
   <PageHero eyebrow={page.eyebrow} headline={page.headline}>
     <div slot="aside" class="intro">
-      {page.intro.map((p) => <p>{p}</p>)}
+      {page.intro.map((p) => <p class="keep-breaks">{p}</p>)}
     </div>
   </PageHero>
 
@@ -35,7 +35,7 @@ const highlighted = writing.find((w) => w.data.highlight);
             <WritingCard item={w} variant="card" readLabel={page.readLabel} />
           ))}
         </div>
-        {page.library.note && <p class="note">{page.library.note}</p>}
+        {page.library.note && <p class="note keep-breaks">{page.library.note}</p>}
       </Container>
     )
   }
