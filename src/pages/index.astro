@@ -43,6 +43,13 @@ const shortNameByService = new Map(services.map((s) => [s.data.name, s.data.shor
       <a class="doorway" href="/consulting/">
         <span class="label">{page.doorways.consulting.label}</span>
         <span class="headline">{page.doorways.consulting.headline}</span>
+        {
+          page.doorways.consulting.points?.length ? (
+            <ul class="points">
+              {page.doorways.consulting.points.map((p) => <li>{p}</li>)}
+            </ul>
+          ) : null
+        }
         <span class="chips">
           {services.map((s) => <Chip>{s.data.shortName}</Chip>)}
         </span>
@@ -51,6 +58,13 @@ const shortNameByService = new Map(services.map((s) => [s.data.name, s.data.shor
       <a class="doorway" href="/apps/">
         <span class="label">{page.doorways.apps.label}</span>
         <span class="headline">{page.doorways.apps.headline}</span>
+        {
+          page.doorways.apps.points?.length ? (
+            <ul class="points">
+              {page.doorways.apps.points.map((p) => <li>{p}</li>)}
+            </ul>
+          ) : null
+        }
         <span class="apps">
           {apps.map((a) => <AppRow item={a} variant="mini" statusLabel={statusLabelFor(site, a)} />)}
         </span>
@@ -171,6 +185,32 @@ const shortNameByService = new Map(services.map((s) => [s.data.name, s.data.shor
     line-height: 36px;
     font-weight: 700;
     letter-spacing: -0.02em;
+  }
+  .points {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .points li {
+    position: relative;
+    padding-left: var(--space-5);
+    font-size: 19px;
+    line-height: 27px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .points li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 7px;
+    height: 7px;
+    border-radius: var(--radius-pill);
+    background: var(--accent);
   }
   .chips {
     display: flex;

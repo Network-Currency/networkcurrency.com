@@ -26,6 +26,13 @@ const site = defineCollection({
   }),
 });
 
+const doorway = z.object({
+  label: z.string(),
+  headline: z.string(),
+  points: z.array(z.string()).optional(),
+  linkLabel: z.string(),
+});
+
 const home = defineCollection({
   loader: pageLoader('home.yaml'),
   schema: z.object({
@@ -37,8 +44,8 @@ const home = defineCollection({
     secondaryCta: link,
     stats: z.array(z.object({ value: z.string(), label: z.string() })),
     doorways: z.object({
-      consulting: z.object({ label: z.string(), headline: z.string(), linkLabel: z.string() }),
-      apps: z.object({ label: z.string(), headline: z.string(), linkLabel: z.string() }),
+      consulting: doorway,
+      apps: doorway,
     }),
     work: eyebrowHeadline.extend({ linkLabel: z.string() }),
     writing: eyebrowHeadline.extend({ intro: z.string(), linkLabel: z.string() }),
