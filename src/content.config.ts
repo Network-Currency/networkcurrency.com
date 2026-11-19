@@ -38,7 +38,7 @@ const home = defineCollection({
   schema: z.object({
     meta,
     eyebrow: z.string(),
-    headline: z.string(),
+    headline: z.union([z.string(), z.array(z.string()).nonempty()]),
     intro: z.string(),
     primaryCta: link,
     secondaryCta: link,
