@@ -7,12 +7,11 @@ import SectionHead from '../components/SectionHead.astro';
 import CaseCard from '../components/CaseCard.astro';
 import ContactBand from '../components/ContactBand.astro';
 import { render } from 'astro:content';
-import { getConsulting, getServices, getCases, getWriting, writingLink } from '../lib/content';
+import { getConsulting, getServices, getCases } from '../lib/content';
 
 const page = await getConsulting();
 const services = await getServices();
 const cases = await getCases();
-const writing = (await getWriting()).filter((w) => w.data.featured);
 const pad = (n: number) => String(n).padStart(2, '0');
 ---
 
@@ -38,49 +37,29 @@ const pad = (n: number) => String(n).padStart(2, '0');
           services.map(async (s, i) => {
             const mine = cases.filter((c) => c.data.service === s.data.name);
             const { Content } = await render(s);
-            const links = s.data.showWriting ? writing : [];
             return (
               <article id={s.id} class="service">
                 <div class="service-top">
-                  <div class="service-head">
+                  <div class="head">
                     <span class="num">{pad(i + 1)}</span>
                     <h3>{s.data.name}</h3>
-                    {links.length > 0 && (
-                      <div class="links">
-                        {links.map((w) => (
-                          <a
-                            class="link-row"
-                            href={writingLink(w).href}
-                            target={writingLink(w).external ? '_blank' : undefined}
-                            rel={writingLink(w).external ? 'noopener' : undefined}
-                          >
-                            <span>{w.data.title}</span>
-                            <span class="arrow" aria-hidden="true">
-                              →
-                            </span>
-                          </a>
-                        ))}
-                        {s.data.writingLinkLabel && (
-                          <a class="link-all" href="/ai-governance/">
-                            {s.data.writingLinkLabel}
-                          </a>
-                        )}
-                      </div>
-                    )}
                   </div>
-                  <div class="service-body">
-                    <div class="description">
-                      <Content />
-                    </div>
-                    <div>
-                      <p class="small-label">{page.engagementsLabel}</p>
-                      <div class="chips">
-                        {s.data.engagements.map((e) => (
-                          <Chip>{e}</Chip>
-                        ))}
-                      </div>
+                  <div class="description">
+                    <Content />
+                  </div>
+                  <div class="engagements">
+                    <p class="small-label">{page.engagementsLabel}</p>
+                    <div class="chips">
+                      {s.data.engagements.map((e) => (
+                        <Chip>{e}</Chip>
+                      ))}
                     </div>
                   </div>
+                  {s.data.showWriting && s.data.writingLinkLabel && (
+                    <a class="link-all" href="/ai-governance/">
+                      {s.data.writingLinkLabel}
+                    </a>
+                  )}
                 </div>
                 {mine.length > 0 && (
                   <div class="cases">
@@ -175,12 +154,18 @@ const pad = (n: number) => String(n).padStart(2, '0');
     box-shadow: var(--shadow-card);
     scroll-margin-top: var(--space-6);
   }
+  /* Service block: one grid, so the desktop and phone orders can differ without duplicated markup. */
   .service-top {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
-    gap: var(--space-8) var(--space-14);
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      'head'
+      'desc'
+      'eng'
+      'link';
   }
-  .service-head {
+  .head {
+    grid-area: head;
     display: flex;
     flex-direction: column;
     gap: 14px;
@@ -191,43 +176,23 @@ const pad = (n: number) => String(n).padStart(2, '0');
     font-weight: 700;
     letter-spacing: -0.02em;
   }
-  .links {
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
-    border-top: 1px solid var(--border);
-  }
-  .link-row {
-    display: flex;
-    justify-content: space-between;
-    gap: var(--space-3);
-    padding: var(--space-3) 0;
-    border-bottom: 1px solid var(--border);
-    font-size: 15px;
-    font-weight: 600;
-    text-decoration: none;
-    color: var(--ink);
-  }
-  .link-row:hover {
-    color: var(--accent-ink);
-  }
-  .arrow {
-    color: var(--accent-ink);
-  }
   .link-all {
-    padding-top: 14px;
+    grid-area: link;
+    justify-self: start;
+    margin-top: var(--space-5);
     font-size: 15px;
     font-weight: 600;
     text-decoration: none;
-  }
-  .service-body {
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
   }
   .description {
+    grid-area: desc;
+    margin-top: var(--space-6);
     font-size: 17px;
     line-height: 28px;
+  }
+  .engagements {
+    grid-area: eng;
+    margin-top: var(--space-6);
   }
   /* Markdown body: space between consecutive blocks, matching the hosted-page prose (--space-5). */
   .description > :global(* + *) {
@@ -283,6 +248,29 @@ const pad = (n: number) => String(n).padStart(2, '0');
     font-size: 16px;
     line-height: 25px;
     color: var(--ink-muted);
+  }
+
+  /* Two columns once each column has about 300px: left name and engagements, right description and link. */
+  @media (min-width: 820px) {
+    .service-top {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: auto auto 1fr auto;
+      grid-template-areas:
+        'head desc'
+        'eng  desc'
+        '.    desc'
+        '.    link';
+      column-gap: var(--space-14);
+    }
+    .description {
+      margin-top: 0;
+    }
+    .engagements {
+      margin-top: var(--space-8);
+    }
+    .link-all {
+      margin-top: var(--space-6);
+    }
   }
 
   @media (max-width: 760px) {
